@@ -17,21 +17,17 @@ public enum StringCatalogWriterError: Error, LocalizedError {
 /// Builds and persists `.xcstrings` files from parsed sheet entries.
 public enum StringCatalogWriter {
 
-    /// Writes a `.xcstrings` file for a single sheet tab.
+    /// Writes a `.xcstrings` file to an explicit output path.
     ///
     /// - Parameters:
     ///   - entries: Parsed entries from the sheet.
-    ///   - tabName: Name of the sheet tab; used as the output filename.
-    ///   - outputDirectory: Directory where the file is written.
+    ///   - outputPath: Full path (including filename) to write the `.xcstrings` file.
     ///   - sourceLanguage: The `sourceLanguage` to embed in the catalog.
     public static func write(
         entries: [ParsedEntry],
-        tabName: String,
-        outputDirectory: String,
+        to outputPath: String,
         sourceLanguage: String
     ) throws {
-        let fileName = "\(tabName).xcstrings"
-        let outputPath = (outputDirectory as NSString).appendingPathComponent(fileName)
         let outputURL = URL(fileURLWithPath: outputPath)
 
         if entries.isEmpty {
@@ -45,11 +41,12 @@ public enum StringCatalogWriter {
         let data = try encode(catalog)
 
         let fm = FileManager.default
-        if !fm.fileExists(atPath: outputDirectory) {
+        let directory = outputURL.deletingLastPathComponent().path
+        if !fm.fileExists(atPath: directory) {
             do {
-                try fm.createDirectory(atPath: outputDirectory, withIntermediateDirectories: true)
+                try fm.createDirectory(atPath: directory, withIntermediateDirectories: true)
             } catch {
-                throw StringCatalogWriterError.cannotCreateOutputDirectory(outputDirectory)
+                throw StringCatalogWriterError.cannotCreateOutputDirectory(directory)
             }
         }
 

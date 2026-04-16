@@ -10,46 +10,53 @@ public struct LocalizerConfig: Codable, Sendable {
     /// The Google Sheets spreadsheet ID (from the URL).
     public let spreadsheetId: String
 
-    /// Directory used as `-localizationPath` for XLIFF export/import and
-    /// where per-tab `.xcstrings` snapshots are read/written.
-    public let outputDirectory: String
+    /// Directory where `.xcstrings` files are written.
+    /// Each sheet tab is written as `<localizationPath>/<tabName>.xcstrings`.
+    /// This should point directly to the folder inside your Xcode project
+    /// that already contains (or will contain) your string catalogs.
+    public let localizationPath: String
 
     /// The BCP-47 language code to use as `sourceLanguage` in all catalogs.
     public let sourceLanguage: String
 
-    /// Path to the `.xcodeproj` used for `xcodebuild -exportLocalizations/-importLocalizations`.
-    /// Exactly one of `xcodeProjectPath` or `xcodeWorkspacePath` must be set.
-    public let xcodeProjectPath: String?
-
-    /// Path to the `.xcworkspace` used for `xcodebuild -exportLocalizations/-importLocalizations`.
-    /// Exactly one of `xcodeProjectPath` or `xcodeWorkspacePath` must be set.
-    public let xcodeWorkspacePath: String?
-
-    /// Required when `xcodeWorkspacePath` is set.
-    public let xcodeScheme: String?
-
     public init(
         credentialsPath: String,
         spreadsheetId: String,
-        outputDirectory: String,
-        sourceLanguage: String = "de",
-        xcodeProjectPath: String? = nil,
-        xcodeWorkspacePath: String? = nil,
-        xcodeScheme: String? = nil
+        localizationPath: String,
+        sourceLanguage: String = "de"
     ) {
         self.credentialsPath = credentialsPath
         self.spreadsheetId = spreadsheetId
-        self.outputDirectory = outputDirectory
+        self.localizationPath = localizationPath
         self.sourceLanguage = sourceLanguage
-        self.xcodeProjectPath = xcodeProjectPath
-        self.xcodeWorkspacePath = xcodeWorkspacePath
-        self.xcodeScheme = xcodeScheme
     }
 
     /// Loads a `LocalizerConfig` from a JSON file at the given path.
+    ///
+    /// All relative paths in the config (e.g. `credentialsPath`, `localizationPath`)
+    /// are resolved relative to the config file's own directory,
+    /// so the CLI can be invoked from any working directory.
     public static func load(from filePath: String) throws -> LocalizerConfig {
-        let url = URL(fileURLWithPath: filePath)
+        let url = URL(fileURLWithPath: filePath).standardizedFileURL
         let data = try Data(contentsOf: url)
-        return try JSONDecoder().decode(LocalizerConfig.self, from: data)
+        let config = try JSONDecoder().decode(LocalizerConfig.self, from: data)
+        let baseURL = url.deletingLastPathComponent()
+        return config.rebased(relativeTo: baseURL)
+    }
+
+    /// Returns a copy of the config with all path fields resolved relative to `base`.
+    /// Paths that are already absolute are left unchanged.
+    func rebased(relativeTo base: URL) -> LocalizerConfig {
+        LocalizerConfig(
+            credentialsPath: Self.resolve(credentialsPath, relativeTo: base),
+            spreadsheetId: spreadsheetId,
+            localizationPath: Self.resolve(localizationPath, relativeTo: base),
+            sourceLanguage: sourceLanguage
+        )
+    }
+
+    private static func resolve(_ path: String, relativeTo base: URL) -> String {
+        guard !path.hasPrefix("/") else { return path }
+        return URL(fileURLWithPath: path, relativeTo: base).standardizedFileURL.path
     }
 }

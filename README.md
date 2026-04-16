@@ -1,12 +1,8 @@
 # swift-localize
 
-`swift-localize` syncs translations from Google Sheets into Xcode localization artifacts.
+`swift-localize` syncs translations from Google Sheets directly into your Xcode project's `.xcstrings` string catalogs.
 
-It can:
-- pull tab data from a spreadsheet,
-- generate per-tab `.xcstrings` snapshots,
-- apply translations to XLIFF files,
-- optionally export/import localizations through `xcodebuild`.
+Google Sheets is the source of truth: new keys appear in the app, renamed keys replace old ones, and removed keys are deleted from the catalog.
 
 ## Requirements
 
@@ -18,10 +14,20 @@ It can:
 
 1. Authenticate with Google using a service account JSON key.
 2. Read spreadsheet tabs and values.
-3. Parse translation rows (`key` + language columns).
-4. Write `.xcstrings` snapshots into `outputDirectory`.
-5. Apply translations into XLIFF files in `outputDirectory`.
-6. If an Xcode project/workspace is configured, run Xcode export/import.
+3. Parse translation rows (`key` column + one column per language).
+4. For each tab, write translations directly into the mapped `.xcstrings` file inside your Xcode project.
+   - Tabs not listed in `stringCatalogs` fall back to writing into `outputDirectory`.
+
+## Spreadsheet Format
+
+Each sheet tab maps to one `.xcstrings` file. Rows follow this convention:
+
+| key | de | en | fr |
+|---|---|---|---|
+| welcome_title | Willkommen | Welcome | Bienvenue |
+| button_ok | OK | OK | OK |
+
+The first column is the localization key. Subsequent columns are BCP-47 language codes.
 
 ## Setup
 
@@ -31,51 +37,37 @@ It can:
 2. Enable the Google Sheets API.
 3. Create a service account.
 4. Create and download a JSON key file.
-5. Share your target Google Sheet with the service account email (Viewer is typically enough for read-only sync).
+5. Share your target Google Sheet with the service account email (Viewer permission is sufficient).
 
-Save the JSON key file locally, for example as `./google_drive_credentials.json`.
+Save the JSON key file locally, for example as `./credentials/google_drive_credentials.json`.
 
 ### 2) Create `localize.json`
 
-Create a config file in your working directory:
+Create a config file — typically placed next to your `.xcodeproj`:
 
 ```json
 {
-  "credentialsPath": "./google_drive_credentials.json",
-  "spreadsheetId": "YOUR_SPREADSHEET_ID",
-  "outputDirectory": "./localization-output",
-  "sourceLanguage": "de",
-  "xcodeProjectPath": "./YourApp.xcodeproj"
+  "credentialsPath":  "./credentials/google_drive_credentials.json",
+  "spreadsheetId":    "YOUR_SPREADSHEET_ID",
+  "localizationPath": "./MyApp",
+  "sourceLanguage":   "de"
 }
 ```
 
-Workspace-based setup:
-
-```json
-{
-  "credentialsPath": "./google_drive_credentials.json",
-  "spreadsheetId": "YOUR_SPREADSHEET_ID",
-  "outputDirectory": "./localization-output",
-  "sourceLanguage": "de",
-  "xcodeWorkspacePath": "./YourApp.xcworkspace",
-  "xcodeScheme": "YourApp"
-}
-```
-
-If you omit both `xcodeProjectPath` and `xcodeWorkspacePath`, the tool skips Xcode export/import and only operates on local artifacts in `outputDirectory`.
+All paths are resolved relative to the config file's location. Each sheet tab is written as `<localizationPath>/<tabName>.xcstrings` directly into your Xcode project folder.
 
 ## Run as CLI
 
 From the package root:
 
 ```sh
-swift run swift-localize-cli
+swift run swift-localize-cli --config /path/to/localize.json
 ```
 
-Use a custom config path:
+Default (looks for `./localize.json` in the current directory):
 
 ```sh
-swift run swift-localize-cli --config /path/to/localize.json
+swift run swift-localize-cli
 ```
 
 Show help:
@@ -130,16 +122,8 @@ try await localizer.run()
 | --- | --- | --- |
 | `credentialsPath` | Yes | Path to Google service account JSON key file. |
 | `spreadsheetId` | Yes | Spreadsheet ID from the Google Sheets URL. |
-| `outputDirectory` | Yes | Directory for `.xcstrings` snapshots and XLIFF files. |
-| `sourceLanguage` | Yes | BCP-47 language code used as source language (for example `de`). |
-| `xcodeProjectPath` | Optional | Path to `.xcodeproj` for `xcodebuild` export/import flow. |
-| `xcodeWorkspacePath` | Optional | Path to `.xcworkspace` for `xcodebuild` flow. |
-| `xcodeScheme` | Conditionally required | Required when `xcodeWorkspacePath` is set. |
-
-Rules:
-- Set either `xcodeProjectPath` or `xcodeWorkspacePath`.
-- Do not set both at the same time.
-- If using workspace mode, set `xcodeScheme`.
+| `localizationPath` | Yes | Directory inside your Xcode project where `.xcstrings` files live. Each tab is written as `<localizationPath>/<tabName>.xcstrings`. |
+| `sourceLanguage` | Yes | BCP-47 language code used as source language (e.g. `de`). |
 
 ## Development
 

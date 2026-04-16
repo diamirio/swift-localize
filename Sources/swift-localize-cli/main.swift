@@ -16,26 +16,16 @@ func printUsage() {
 
     CONFIG FILE (localize.json):
       {
-        "credentialsPath": "./credentials/google_drive_credentials.json",
-        "spreadsheetId":   "YOUR_SPREADSHEET_ID",
-        "outputDirectory": "./output",
-        "sourceLanguage":  "de",
-        "xcodeProjectPath": "./YourApp.xcodeproj"
+        "credentialsPath":  "./credentials/google_drive_credentials.json",
+        "spreadsheetId":    "YOUR_SPREADSHEET_ID",
+        "localizationPath": "./MyApp",
+        "sourceLanguage":   "de"
       }
 
-      For workspaces use:
-      {
-        "credentialsPath": "./credentials/google_drive_credentials.json",
-        "spreadsheetId":   "YOUR_SPREADSHEET_ID",
-        "outputDirectory": "./output",
-        "sourceLanguage":  "de",
-        "xcodeWorkspacePath": "./YourApp.xcworkspace",
-        "xcodeScheme": "YourApp"
-      }
+      All paths are resolved relative to the config file's location.
 
-      For this repo (no Xcode project): omit xcodeProjectPath/xcodeWorkspacePath.
-      The tool then uses local artifacts in outputDirectory (XLIFF if present,
-      otherwise .xcstrings fallback).
+      Each sheet tab is written as <localizationPath>/<tabName>.xcstrings
+      directly into your Xcode project folder.
     """)
 }
 
