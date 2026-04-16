@@ -1,6 +1,6 @@
 {
-  "credentialsPath": "./credentials/google_drive_credentials.json",
+  "credentialsPath": "./Tests/swift-localizeTests/credentials/google_drive_credentials.json",
   "spreadsheetId": "1cTblm7c2fMQ_Lus3Fbba4YwAfOYtG8qF88epcUtHE7I",
-  "outputDirectory": "./test-output",
+  "outputDirectory": "./Tests/swift-localizeTests/output",
   "sourceLanguage": "de"
 }

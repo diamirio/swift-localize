@@ -16,18 +16,18 @@ func printUsage() {
 
     CONFIG FILE (localize.json):
       {
-        "credentialsPath": "./google_drive_credentials.json",
+        "credentialsPath": "./credentials/google_drive_credentials.json",
         "spreadsheetId":   "YOUR_SPREADSHEET_ID",
-        "outputDirectory": "./test-output",
+        "outputDirectory": "./output",
         "sourceLanguage":  "de",
         "xcodeProjectPath": "./YourApp.xcodeproj"
       }
 
       For workspaces use:
       {
-        "credentialsPath": "./google_drive_credentials.json",
+        "credentialsPath": "./credentials/google_drive_credentials.json",
         "spreadsheetId":   "YOUR_SPREADSHEET_ID",
-        "outputDirectory": "./test-output",
+        "outputDirectory": "./output",
         "sourceLanguage":  "de",
         "xcodeWorkspacePath": "./YourApp.xcworkspace",
         "xcodeScheme": "YourApp"
