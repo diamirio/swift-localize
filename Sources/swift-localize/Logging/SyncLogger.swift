@@ -42,15 +42,9 @@ public enum SyncLogger {
 
         print("[\(tabName)] \(newKeys.count) string(s) written")
 
-        if !added.isEmpty {
-            print("[\(tabName)] + added (\(added.count)): \(added.joined(separator: ", "))")
-        }
-        if !removed.isEmpty {
-            print("[\(tabName)] - removed (\(removed.count)): \(removed.joined(separator: ", "))")
-        }
-        if !updated.isEmpty {
-            print("[\(tabName)] ~ updated (\(updated.count)): \(updated.joined(separator: ", "))")
-        }
+        added.forEach { print("[\(tabName)] + added: \($0)") }
+        removed.forEach { print("[\(tabName)] - removed: \($0)") }
+        updated.forEach { print("[\(tabName)] ~ updated: \($0)") }
         if added.isEmpty && removed.isEmpty && updated.isEmpty && oldCatalog != nil {
             print("[\(tabName)] No changes")
         }
