@@ -146,6 +146,10 @@ public actor GoogleAuthProvider {
 }
 
 enum PrivateKeyImporter {
+    /// Imports an RSA private key from a PEM-encoded PKCS#8 string.
+    ///
+    /// Uses only APIs available on both macOS and iOS (`SecKeyCreateWithData`),
+    /// avoiding the macOS-only `SecItemImport`.
     static func importRSAPrivateKey(from pem: String) throws -> SecKey {
         let normalizedPEM = pem
             .replacingOccurrences(of: "\\n", with: "\n")
@@ -159,64 +163,121 @@ enum PrivateKeyImporter {
             throw AuthError.invalidPrivateKey("Unsupported PEM header. Expected BEGIN PRIVATE KEY.")
         }
 
-        guard let pemData = normalizedPEM.data(using: .utf8) else {
-            throw AuthError.invalidPrivateKey("Could not encode PEM as UTF-8.")
-        }
-        var format = SecExternalFormat.formatUnknown
-        var itemType = SecExternalItemType.itemTypeUnknown
-        var importedItems: CFArray?
+        // Strip PEM armor and base64-decode to get DER bytes (PKCS#8 format).
+        let base64 = normalizedPEM
+            .components(separatedBy: "\n")
+            .filter { !$0.hasPrefix("-----") && !$0.isEmpty }
+            .joined()
 
-        let status = SecItemImport(
-            pemData as CFData,
-            nil,
-            &format,
-            &itemType,
-            [],
-            nil,
-            nil,
-            &importedItems
-        )
-
-        guard status == errSecSuccess else {
-            throw AuthError.invalidPrivateKey("Could not import private key: \(errorMessage(for: status))")
+        guard let pkcs8DER = Data(base64Encoded: base64) else {
+            throw AuthError.invalidPrivateKey("Could not base64-decode PEM body.")
         }
 
-        guard let importedItems else {
-            throw AuthError.invalidPrivateKey("No key material found in PEM.")
+        // Strip the PKCS#8 ASN.1 outer wrapper to obtain the inner PKCS#1 RSA key bytes.
+        // SecKeyCreateWithData requires the raw PKCS#1 DER for RSA private keys.
+        let pkcs1DER = try stripPKCS8Header(from: pkcs8DER)
+
+        var error: Unmanaged<CFError>?
+        let attributes: [CFString: Any] = [
+            kSecAttrKeyType: kSecAttrKeyTypeRSA,
+            kSecAttrKeyClass: kSecAttrKeyClassPrivate,
+        ]
+
+        guard let key = SecKeyCreateWithData(pkcs1DER as CFData, attributes as CFDictionary, &error) else {
+            let detail = error.map { CFErrorCopyDescription($0.takeRetainedValue()) as String } ?? "unknown"
+            throw AuthError.invalidPrivateKey("SecKeyCreateWithData failed: \(detail)")
         }
 
-        let itemCount = CFArrayGetCount(importedItems)
-        for index in 0..<itemCount {
-            let rawItem = CFArrayGetValueAtIndex(importedItems, index)
-            let item = unsafeBitCast(rawItem, to: AnyObject.self)
-            guard CFGetTypeID(item) == SecKeyGetTypeID() else {
-                continue
-            }
-
-            let key = unsafeBitCast(rawItem, to: SecKey.self)
-            try validateIsRSA(key: key)
-            return key
-        }
-
-        throw AuthError.invalidPrivateKey("Imported PEM did not contain a private key.")
+        return key
     }
 
-    private static func validateIsRSA(key: SecKey) throws {
-        guard let attributes = SecKeyCopyAttributes(key) as? [CFString: Any],
-              let keyType = attributes[kSecAttrKeyType] else {
-            throw AuthError.invalidPrivateKey("Could not inspect imported key attributes.")
+    // MARK: - PKCS#8 ASN.1 unwrapping
+
+    /// Strips the PKCS#8 outer ASN.1 wrapper from DER-encoded data and returns
+    /// the inner PKCS#1 `RSAPrivateKey` bytes.
+    ///
+    /// PKCS#8 structure (simplified):
+    /// ```
+    /// SEQUENCE {
+    ///   INTEGER 0                          -- version
+    ///   SEQUENCE { OID rsaEncryption, NULL } -- algorithm identifier
+    ///   OCTET STRING {                     -- privateKey
+    ///     <PKCS#1 RSAPrivateKey DER>
+    ///   }
+    /// }
+    /// ```
+    private static func stripPKCS8Header(from der: Data) throws -> Data {
+        var index = der.startIndex
+
+        // Outer SEQUENCE
+        try expect(tag: 0x30, in: der, at: &index)
+        try skipLength(in: der, at: &index)
+
+        // version INTEGER (0)
+        try expect(tag: 0x02, in: der, at: &index)
+        let versionLen = try readLength(in: der, at: &index)
+        index = der.index(index, offsetBy: versionLen)
+
+        // Algorithm identifier SEQUENCE — skip entirely
+        try expect(tag: 0x30, in: der, at: &index)
+        let algIdLen = try readLength(in: der, at: &index)
+        index = der.index(index, offsetBy: algIdLen)
+
+        // privateKey OCTET STRING — the payload is the PKCS#1 key
+        try expect(tag: 0x04, in: der, at: &index)
+        let keyLen = try readLength(in: der, at: &index)
+
+        guard der.distance(from: index, to: der.endIndex) >= keyLen else {
+            throw AuthError.invalidPrivateKey("PKCS#8 OCTET STRING length exceeds available data.")
         }
 
-        guard CFEqual(keyType as CFTypeRef, kSecAttrKeyTypeRSA) else {
-            throw AuthError.invalidPrivateKey("Private key algorithm is not RSA.")
-        }
+        return der[index ..< der.index(index, offsetBy: keyLen)]
     }
 
-    private static func errorMessage(for status: OSStatus) -> String {
-        if let message = SecCopyErrorMessageString(status, nil) as String? {
-            return message
+    /// Asserts the next byte equals `tag` and advances the index past it.
+    private static func expect(tag: UInt8, in data: Data, at index: inout Data.Index) throws {
+        guard index < data.endIndex, data[index] == tag else {
+            let found = index < data.endIndex ? String(data[index], radix: 16) : "end-of-data"
+            throw AuthError.invalidPrivateKey(
+                "ASN.1 parse error: expected tag 0x\(String(tag, radix: 16)), found 0x\(found)."
+            )
         }
-        return "OSStatus \(status)"
+        index = data.index(after: index)
+    }
+
+    /// Reads a DER-encoded length and advances the index past the length bytes.
+    private static func readLength(in data: Data, at index: inout Data.Index) throws -> Int {
+        guard index < data.endIndex else {
+            throw AuthError.invalidPrivateKey("ASN.1 parse error: unexpected end of data while reading length.")
+        }
+        let first = data[index]
+        index = data.index(after: index)
+
+        if first & 0x80 == 0 {
+            // Short form: length is the byte itself.
+            return Int(first)
+        }
+
+        // Long form: lower 7 bits give the number of subsequent length bytes.
+        let numBytes = Int(first & 0x7F)
+        guard numBytes > 0, numBytes <= 4 else {
+            throw AuthError.invalidPrivateKey("ASN.1 parse error: unsupported length encoding (numBytes=\(numBytes)).")
+        }
+        guard data.distance(from: index, to: data.endIndex) >= numBytes else {
+            throw AuthError.invalidPrivateKey("ASN.1 parse error: not enough bytes for length encoding.")
+        }
+
+        var length = 0
+        for _ in 0 ..< numBytes {
+            length = (length << 8) | Int(data[index])
+            index = data.index(after: index)
+        }
+        return length
+    }
+
+    /// Reads and discards a DER length field (convenience wrapper over `readLength`).
+    private static func skipLength(in data: Data, at index: inout Data.Index) throws {
+        _ = try readLength(in: data, at: &index)
     }
 }
 
