@@ -16,7 +16,7 @@ func printUsage() {
 
     CONFIG FILE (localize.json):
       {
-        "credentialsPath": "./service-account.json",
+        "credentialsPath": "./google_drive_credentials.json",
         "spreadsheetId":   "YOUR_SPREADSHEET_ID",
         "outputDirectory": "./test-output",
         "sourceLanguage":  "de",
@@ -25,7 +25,7 @@ func printUsage() {
 
       For workspaces use:
       {
-        "credentialsPath": "./service-account.json",
+        "credentialsPath": "./google_drive_credentials.json",
         "spreadsheetId":   "YOUR_SPREADSHEET_ID",
         "outputDirectory": "./test-output",
         "sourceLanguage":  "de",
