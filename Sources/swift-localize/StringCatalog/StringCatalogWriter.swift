@@ -30,6 +30,17 @@ public enum StringCatalogWriter {
         outputDirectory: String,
         sourceLanguage: String
     ) throws {
+        let fileName = "\(tabName).xcstrings"
+        let outputPath = (outputDirectory as NSString).appendingPathComponent(fileName)
+        let outputURL = URL(fileURLWithPath: outputPath)
+
+        if entries.isEmpty {
+            if FileManager.default.fileExists(atPath: outputPath) {
+                try FileManager.default.removeItem(at: outputURL)
+            }
+            return
+        }
+
         let catalog = buildCatalog(entries: entries, sourceLanguage: sourceLanguage)
         let data = try encode(catalog)
 
@@ -42,10 +53,7 @@ public enum StringCatalogWriter {
             }
         }
 
-        let fileName = "\(tabName).xcstrings"
-        let outputPath = (outputDirectory as NSString).appendingPathComponent(fileName)
-        let url = URL(fileURLWithPath: outputPath)
-        try data.write(to: url, options: .atomic)
+        try data.write(to: outputURL, options: .atomic)
     }
 
     // MARK: - Internal helpers
@@ -62,7 +70,8 @@ public enum StringCatalogWriter {
                 )
             }
             strings[entry.key] = StringEntry(
-                localizations: localizations.isEmpty ? nil : localizations
+                localizations: localizations.isEmpty ? nil : localizations,
+                comment: entry.comment
             )
         }
 

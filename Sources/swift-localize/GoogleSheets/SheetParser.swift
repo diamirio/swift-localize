@@ -9,10 +9,13 @@ public struct ParsedEntry: Sendable, Equatable {
     /// Translations keyed by BCP-47 language code (e.g. "de", "en").
     /// Only languages with non-filtered values are included.
     public let translations: [String: String]
+    /// Optional comment from the "Kommentar" column.
+    public let comment: String?
 
-    public init(key: String, translations: [String: String]) {
+    public init(key: String, translations: [String: String], comment: String? = nil) {
         self.key = key
         self.translations = translations
+        self.comment = comment
     }
 }
 
@@ -22,6 +25,8 @@ struct SheetColumnLayout {
     let identifierIndex: Int
     /// Map of language code → column index for all language columns.
     let languageColumns: [String: Int]
+    /// Index of the "Kommentar" column.
+    let commentIndex: Int
 }
 
 /// Parses Google Sheets raw 2D string data into `ParsedEntry` values.
@@ -29,14 +34,17 @@ struct SheetColumnLayout {
 /// Column schema (per tab):
 /// - Row 0 is the header row.
 /// - `"Identifier iOS"` → the localization key.
-/// - `"comments"` → always ignored.
-/// - All other columns → treated as language codes.
+/// - `"Kommentar"` → optional string comment on each entry.
+/// - Columns before `"Kommentar"` with valid short language codes (for example `de`, `en`) are treated as language columns.
+/// - All columns after `"Kommentar"` are ignored.
 ///
 /// Row filtering:
 /// - Skip rows where the identifier is `""`, `"NR"`, or `"TBD"` (exact, case-sensitive).
 /// - Skip rows where the identifier starts with `"//"` (section headers).
 /// - For individual language cells: omit that language if the value is `""`, `"NR"`, or `"TBD"`.
 public enum SheetParser {
+
+    private static let validShortLanguageCodes = Set(Locale.LanguageCode.isoLanguageCodes.map { $0.identifier.lowercased() })
 
     // MARK: - Public API
 
@@ -56,7 +64,6 @@ public enum SheetParser {
 
         var entries: [ParsedEntry] = []
         for row in rows.dropFirst() {
-            SyncLogger.info("Row: \(row)")
             if let entry = parseRow(row, layout: layout) {
                 entries.append(entry)
             }
@@ -70,18 +77,23 @@ public enum SheetParser {
         guard let identifierIndex = headerRow.firstIndex(of: "Identifier iOS") else {
             return nil
         }
+        guard let commentIndex = headerRow.firstIndex(of: "Kommentar") else {
+            return nil
+        }
 
         var languageColumns: [String: Int] = [:]
         for (index, header) in headerRow.enumerated() {
             guard index != identifierIndex else { continue }
-            guard header != "comments" else { continue }
+            guard index < commentIndex else { continue }
             guard !header.isEmpty else { continue }
-            languageColumns[header] = index
+            guard isValidShortLanguageCode(header) else { continue }
+            languageColumns[header.lowercased()] = index
         }
 
         return SheetColumnLayout(
             identifierIndex: identifierIndex,
-            languageColumns: languageColumns
+            languageColumns: languageColumns,
+            commentIndex: commentIndex
         )
     }
 
@@ -99,7 +111,10 @@ public enum SheetParser {
             }
         }
 
-        return ParsedEntry(key: identifier, translations: translations)
+        let rawComment = cellValue(row, at: layout.commentIndex)
+        let comment = rawComment.isEmpty ? nil : rawComment
+
+        return ParsedEntry(key: identifier, translations: translations, comment: comment)
     }
 
     // MARK: - Filter helpers
@@ -125,5 +140,12 @@ public enum SheetParser {
     /// Returns `true` for values that must be ignored: empty, "NR", "TBD".
     static func isFilteredValue(_ value: String) -> Bool {
         return value.isEmpty || value == "NR" || value == "TBD"
+    }
+
+    static func isValidShortLanguageCode(_ value: String) -> Bool {
+        let normalized = value.trimmingCharacters(in: .whitespaces).lowercased()
+        guard !normalized.isEmpty else { return false }
+        guard !normalized.contains("-"), !normalized.contains("_") else { return false }
+        return validShortLanguageCodes.contains(normalized)
     }
 }

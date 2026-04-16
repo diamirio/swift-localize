@@ -27,7 +27,11 @@ let package = Package(
         ),
         .testTarget(
             name: "swift-localizeTests",
-            dependencies: ["swift-localize"]
+            dependencies: ["swift-localize"],
+            resources: [
+                .copy("output"),
+                .copy("credentials"),
+            ]
         ),
     ]
 )

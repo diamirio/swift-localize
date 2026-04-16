@@ -11,7 +11,7 @@ final class SheetParserTests: XCTestCase {
     // MARK: Column discovery
 
     func test_discoverColumns_findsIdentifierAndLanguages() {
-        let header = ["Identifier iOS", "de", "en", "fr", "comments"]
+        let header = ["Identifier iOS", "de", "en", "fr", "Kommentar"]
         let layout = SheetParser.discoverColumns(headerRow: header)
 
         XCTAssertNotNil(layout)
@@ -19,20 +19,42 @@ final class SheetParserTests: XCTestCase {
         XCTAssertEqual(layout?.languageColumns["de"], 1)
         XCTAssertEqual(layout?.languageColumns["en"], 2)
         XCTAssertEqual(layout?.languageColumns["fr"], 3)
-        // "comments" must not be treated as a language
-        XCTAssertNil(layout?.languageColumns["comments"])
+        XCTAssertEqual(layout?.commentIndex, 4)
+        XCTAssertNil(layout?.languageColumns["Kommentar"])
     }
 
     func test_discoverColumns_returnsNilWhenNoIdentifierColumn() {
-        let header = ["Key", "de", "en", "comments"]
+        let header = ["Key", "de", "en", "Kommentar"]
+        XCTAssertNil(SheetParser.discoverColumns(headerRow: header))
+    }
+
+    func test_discoverColumns_returnsNilWhenNoKommentarColumn() {
+        let header = ["Identifier iOS", "de", "en"]
         XCTAssertNil(SheetParser.discoverColumns(headerRow: header))
     }
 
     func test_discoverColumns_ignoresEmptyHeaders() {
-        let header = ["Identifier iOS", "", "de", "comments"]
+        let header = ["Identifier iOS", "", "de", "Kommentar"]
         let layout = SheetParser.discoverColumns(headerRow: header)
         XCTAssertNil(layout?.languageColumns[""])
         XCTAssertEqual(layout?.languageColumns["de"], 2)
+    }
+
+    func test_discoverColumns_acceptsOnlyShortLanguageCodes() {
+        let header = ["Identifier iOS", "de", "en-US", "foo", "en", "Kommentar"]
+        let layout = SheetParser.discoverColumns(headerRow: header)
+        XCTAssertEqual(layout?.languageColumns["de"], 1)
+        XCTAssertEqual(layout?.languageColumns["en"], 4)
+        XCTAssertNil(layout?.languageColumns["en-US"])
+        XCTAssertNil(layout?.languageColumns["foo"])
+    }
+
+    func test_discoverColumns_ignoresColumnsAfterKommentar() {
+        let header = ["Identifier iOS", "de", "Kommentar", "en", "fr"]
+        let layout = SheetParser.discoverColumns(headerRow: header)
+        XCTAssertEqual(layout?.languageColumns["de"], 1)
+        XCTAssertNil(layout?.languageColumns["en"])
+        XCTAssertNil(layout?.languageColumns["fr"])
     }
 
     // MARK: Row filtering — identifier
@@ -85,13 +107,13 @@ final class SheetParserTests: XCTestCase {
     }
 
     func test_parse_headerOnlyNoData() {
-        let rows = [["Identifier iOS", "de", "en", "comments"]]
+        let rows = [["Identifier iOS", "de", "en", "Kommentar"]]
         XCTAssertTrue(SheetParser.parse(rows: rows).isEmpty)
     }
 
     func test_parse_basicEntries() {
         let rows = [
-            ["Identifier iOS", "de", "en", "comments"],
+            ["Identifier iOS", "de", "en", "Kommentar"],
             ["home.title", "Startseite", "Home", "Main screen title"],
             ["home.subtitle", "Willkommen", "Welcome", ""],
         ]
@@ -100,13 +122,14 @@ final class SheetParserTests: XCTestCase {
         XCTAssertEqual(entries[0].key, "home.title")
         XCTAssertEqual(entries[0].translations["de"], "Startseite")
         XCTAssertEqual(entries[0].translations["en"], "Home")
-        // "comments" column must not appear in translations
-        XCTAssertNil(entries[0].translations["comments"])
+        XCTAssertEqual(entries[0].comment, "Main screen title")
+        XCTAssertNil(entries[0].translations["Kommentar"])
+        XCTAssertNil(entries[1].comment)
     }
 
     func test_parse_skipsFilteredIdentifiers() {
         let rows = [
-            ["Identifier iOS", "de", "en", "comments"],
+            ["Identifier iOS", "de", "en", "Kommentar"],
             ["// Section", "ignored", "ignored", ""],
             ["NR", "ignored", "ignored", ""],
             ["TBD", "ignored", "ignored", ""],
@@ -120,7 +143,7 @@ final class SheetParserTests: XCTestCase {
 
     func test_parse_omitsFilteredLanguageValues() {
         let rows = [
-            ["Identifier iOS", "de", "en", "comments"],
+            ["Identifier iOS", "de", "en", "Kommentar"],
             ["key.one", "Hallo", "NR", ""],
             ["key.two", "TBD", "", ""],
         ]
@@ -140,7 +163,7 @@ final class SheetParserTests: XCTestCase {
 
     func test_parse_handlesShortRows() {
         let rows = [
-            ["Identifier iOS", "de", "en", "comments"],
+            ["Identifier iOS", "de", "en", "Kommentar"],
             ["key.short"],
         ]
         let entries = SheetParser.parse(rows: rows)
@@ -151,12 +174,24 @@ final class SheetParserTests: XCTestCase {
 
     func test_parse_trimsWhitespace() {
         let rows = [
-            ["Identifier iOS", "de", "comments"],
+            ["Identifier iOS", "de", "Kommentar"],
             ["  key.trimmed  ", "  Hallo  ", ""],
         ]
         let entries = SheetParser.parse(rows: rows)
         XCTAssertEqual(entries[0].key, "key.trimmed")
         XCTAssertEqual(entries[0].translations["de"], "Hallo")
+    }
+
+    func test_parse_ignoresColumnsAfterKommentar() {
+        let rows = [
+            ["Identifier iOS", "de", "Kommentar", "en"],
+            ["home.title", "Startseite", "Main screen title", "Home"],
+        ]
+        let entries = SheetParser.parse(rows: rows)
+        XCTAssertEqual(entries.count, 1)
+        XCTAssertEqual(entries[0].translations["de"], "Startseite")
+        XCTAssertNil(entries[0].translations["en"])
+        XCTAssertEqual(entries[0].comment, "Main screen title")
     }
 }
 
@@ -196,6 +231,81 @@ final class StringCatalogWriterTests: XCTestCase {
         XCTAssertNotNil(json)
         XCTAssertEqual(json?["sourceLanguage"] as? String, "de")
         XCTAssertEqual(json?["version"] as? String, "1.0")
+    }
+
+    func test_write_removesLanguageWhenNoLongerPresent() throws {
+        let tempDir = try makeTempDirectory()
+        defer { try? FileManager.default.removeItem(atPath: tempDir) }
+
+        let tabName = "Sample"
+        try StringCatalogWriter.write(
+            entries: [ParsedEntry(key: "welcome", translations: ["de": "Willkommen", "en": "Welcome"])],
+            tabName: tabName,
+            outputDirectory: tempDir,
+            sourceLanguage: "de"
+        )
+
+        try StringCatalogWriter.write(
+            entries: [ParsedEntry(key: "welcome", translations: ["de": "Willkommen"])],
+            tabName: tabName,
+            outputDirectory: tempDir,
+            sourceLanguage: "de"
+        )
+
+        let catalogPath = (tempDir as NSString).appendingPathComponent("\(tabName).xcstrings")
+        let catalog = try StringCatalogReader.read(from: catalogPath)
+
+        XCTAssertEqual(catalog?.strings["welcome"]?.localizations?["de"]?.stringUnit.value, "Willkommen")
+        XCTAssertNil(catalog?.strings["welcome"]?.localizations?["en"])
+    }
+
+    func test_write_emptyEntriesRemovesExistingCatalog() throws {
+        let tempDir = try makeTempDirectory()
+        defer { try? FileManager.default.removeItem(atPath: tempDir) }
+
+        let tabName = "Sample"
+        let catalogPath = (tempDir as NSString).appendingPathComponent("\(tabName).xcstrings")
+
+        try StringCatalogWriter.write(
+            entries: [ParsedEntry(key: "welcome", translations: ["de": "Willkommen"])],
+            tabName: tabName,
+            outputDirectory: tempDir,
+            sourceLanguage: "de"
+        )
+        XCTAssertTrue(FileManager.default.fileExists(atPath: catalogPath))
+
+        try StringCatalogWriter.write(
+            entries: [],
+            tabName: tabName,
+            outputDirectory: tempDir,
+            sourceLanguage: "de"
+        )
+
+        XCTAssertFalse(FileManager.default.fileExists(atPath: catalogPath))
+    }
+
+    func test_write_emptyEntriesDoesNotCreateCatalog() throws {
+        let tempDir = try makeTempDirectory()
+        defer { try? FileManager.default.removeItem(atPath: tempDir) }
+
+        let tabName = "Sample"
+        let catalogPath = (tempDir as NSString).appendingPathComponent("\(tabName).xcstrings")
+
+        try StringCatalogWriter.write(
+            entries: [],
+            tabName: tabName,
+            outputDirectory: tempDir,
+            sourceLanguage: "de"
+        )
+
+        XCTAssertFalse(FileManager.default.fileExists(atPath: catalogPath))
+    }
+
+    private func makeTempDirectory() throws -> String {
+        let tempDir = FileManager.default.temporaryDirectory
+            .appendingPathComponent("swift-localize-tests-\(UUID().uuidString)")
+        try FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)
+        return tempDir.path
     }
 }
 

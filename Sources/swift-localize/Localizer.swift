@@ -112,6 +112,7 @@ public actor Localizer {
         // Load existing catalog for diff logging.
         let catalogPath = outputPath(for: tabName)
         let existingCatalog = try StringCatalogReader.read(from: catalogPath)
+        let hadExistingCatalog = (existingCatalog != nil)
 
         SyncLogger.logPullResult(
             tabName: tabName,
@@ -125,6 +126,14 @@ public actor Localizer {
             outputDirectory: config.outputDirectory,
             sourceLanguage: config.sourceLanguage
         )
+
+        if entries.isEmpty {
+            if hadExistingCatalog {
+                SyncLogger.info("[\(tabName)] No parsed strings; removed existing catalog file.")
+            } else {
+                SyncLogger.info("[\(tabName)] No parsed strings; no catalog file created.")
+            }
+        }
 
         return entries
     }

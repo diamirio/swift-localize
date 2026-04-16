@@ -67,12 +67,6 @@
     },
     "adminDashboard.sickLeave" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "adminDashboard.sickLeave"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -89,12 +83,6 @@
     },
     "adminDashboard.specialVacation" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "adminDashboard.specialVacation"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -287,12 +275,6 @@
     },
     "afk.activate" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.activateButton.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -309,12 +291,6 @@
     },
     "afk.activator.description" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.activator.description"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -331,12 +307,6 @@
     },
     "afk.activator.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.activator.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -353,12 +323,6 @@
     },
     "afk.approvals" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.approvals.menuTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -375,12 +339,6 @@
     },
     "afk.button.request.sepecialVacation" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "afk_special_vacation_request_screen"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -397,18 +355,6 @@
     },
     "afk.button.request.vacation" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "afk_request_action"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.new"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -441,12 +387,6 @@
     },
     "afk.calendar.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.calendar.menuTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -463,18 +403,6 @@
     },
     "afk.claim.remaining" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "remaining"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.claim.remaining"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -491,12 +419,6 @@
     },
     "afk.claim.thisYear" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.claim.thisYear"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -529,18 +451,6 @@
     },
     "afk.create.addApprover" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "add_approver"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.addApproversButton.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -669,12 +579,6 @@
     },
     "afk.daysRemaining" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.daysRemaining"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -691,12 +595,6 @@
     },
     "afk.detail.accept" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "action_grant"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -716,12 +614,6 @@
     },
     "afk.detail.approvers" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.approvers"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -738,12 +630,6 @@
     },
     "afk.detail.calendar" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendar"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -770,12 +656,6 @@
     },
     "afk.detail.daysAvailable" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.daysAvailable"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -792,12 +672,6 @@
     },
     "afk.detail.decline" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "action_decline"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -814,12 +688,6 @@
     },
     "afk.detail.duration" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.duration"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -836,12 +704,6 @@
     },
     "afk.detail.end" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.endDate"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -858,12 +720,6 @@
     },
     "afk.detail.note" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "note"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -880,12 +736,6 @@
     },
     "afk.detail.remaining" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.remaining"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -902,12 +752,6 @@
     },
     "afk.detail.request" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.requestButton.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -934,12 +778,6 @@
     },
     "afk.detail.requestFrom" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "requested_by"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -976,18 +814,6 @@
     },
     "afk.detail.revoke" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacation_action_revoke"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.revoke"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1004,12 +830,6 @@
     },
     "afk.detail.start" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.beginDate"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1026,12 +846,6 @@
     },
     "afk.detail.status" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.status.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1112,12 +926,6 @@
     },
     "afk.history.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "afk_history_screen"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1134,12 +942,6 @@
     },
     "afk.openRequests" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.openRequests"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1156,18 +958,6 @@
     },
     "afk.overview.claimed" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "claimed"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.claimed"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1184,18 +974,6 @@
     },
     "afk.overview.planned" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "planned"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.planned"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1228,18 +1006,6 @@
     },
     "afk.screen" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "afk_screen"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.menuTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1256,18 +1022,6 @@
     },
     "afk.section.vactionData" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacation_header"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.dataHeading"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1284,18 +1038,6 @@
     },
     "afk.status.approved" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacation_status_approved"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.status.items.approved"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1328,18 +1070,6 @@
     },
     "afk.status.declined" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacation_status_declined"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.status.items.declined"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1372,18 +1102,6 @@
     },
     "afk.status.waiting" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacation_status_pending"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.status.items.waiting"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1416,18 +1134,6 @@
     },
     "afk.status.withdrew" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacation_status_withdraw"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.status.items.withdrew"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1460,18 +1166,6 @@
     },
     "afk.vacation.days.per.year" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacation_days_per_year"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.claim.perYear"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1536,18 +1230,6 @@
     },
     "afkDetail.header.specialVacation" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "afk_special_vacations_title"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "specialVacation.name"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1580,12 +1262,6 @@
     },
     "app.settings" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "app_settings"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1618,12 +1294,6 @@
     },
     "approvals.budget" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "approvals.metrics.budget"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1640,18 +1310,6 @@
     },
     "approvals.comment" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "comment"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "approvals.comment"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1684,12 +1342,6 @@
     },
     "approvals.duration" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "approvals.duration.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1706,12 +1358,6 @@
     },
     "approvals.epics" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "approvals.epics.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1792,12 +1438,6 @@
     },
     "approvals.progress" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "approvals.metrics.progress"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1878,12 +1518,6 @@
     },
     "approvals.status" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "approvals.status.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1916,12 +1550,6 @@
     },
     "approvals.status.approved" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "approvals.statusText.approved"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1970,12 +1598,6 @@
     },
     "approvals.status.declined" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "approvals.statusText.declined"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2040,12 +1662,6 @@
     },
     "approvals.tracked" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "approvals.tracking.tracked"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2062,12 +1678,6 @@
     },
     "approvals.trackings" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "approvals.tracking.trackings"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3843,13 +3453,8 @@
       }
     },
     "bill.pdf.amount" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3865,13 +3470,8 @@
       }
     },
     "bill.pdf.banking.info" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3887,13 +3487,8 @@
       }
     },
     "bill.pdf.bill.number" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3909,13 +3504,8 @@
       }
     },
     "bill.pdf.billing.amount.gross" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3931,13 +3521,8 @@
       }
     },
     "bill.pdf.billing.amount.net" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3953,13 +3538,8 @@
       }
     },
     "bill.pdf.billing.date" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3975,13 +3555,8 @@
       }
     },
     "bill.pdf.contact.person" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3997,13 +3572,8 @@
       }
     },
     "bill.pdf.date.of.payment" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4019,13 +3589,8 @@
       }
     },
     "bill.pdf.description" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4041,13 +3606,8 @@
       }
     },
     "bill.pdf.hourly.rate" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4063,13 +3623,8 @@
       }
     },
     "bill.pdf.mail" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4085,13 +3640,8 @@
       }
     },
     "bill.pdf.mode.credit" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4107,13 +3657,8 @@
       }
     },
     "bill.pdf.mode.invoice" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4129,13 +3674,8 @@
       }
     },
     "bill.pdf.mode.partial.invoice" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4151,13 +3691,8 @@
       }
     },
     "bill.pdf.order.number" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4173,13 +3708,8 @@
       }
     },
     "bill.pdf.order.reference" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4195,13 +3725,8 @@
       }
     },
     "bill.pdf.page.of" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4217,13 +3742,8 @@
       }
     },
     "bill.pdf.period.of.performance" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4239,13 +3759,8 @@
       }
     },
     "bill.pdf.person" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4261,13 +3776,8 @@
       }
     },
     "bill.pdf.piece.rate" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4283,13 +3793,8 @@
       }
     },
     "bill.pdf.quantity" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4305,13 +3810,8 @@
       }
     },
     "bill.pdf.rounded.values.info" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4327,13 +3827,8 @@
       }
     },
     "bill.pdf.short.managing.director" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4365,13 +3860,8 @@
       }
     },
     "bill.pdf.short.ready.at.hand" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4403,13 +3893,8 @@
       }
     },
     "bill.pdf.vat" : {
+      "comment" : "Rechnungstexte momentan nur auf Deutsch",
       "localizations" : {
-        "Kommentar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechnungstexte momentan nur auf Deutsch"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5076,12 +4561,6 @@
     },
     "build" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "build"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5178,12 +4657,6 @@
     },
     "calendar.week" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendar_week"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5296,18 +4769,6 @@
     },
     "calendarTypes.event" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendar_entry_event"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendarTypes.event"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5324,18 +4785,6 @@
     },
     "calendarTypes.holiday" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendar_entry_holiday"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendarTypes.holiday"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5352,18 +4801,6 @@
     },
     "calendarTypes.news" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendar_entry_news"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendarTypes.news"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5380,18 +4817,6 @@
     },
     "calendarTypes.nonWorkDay" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendar_entry_non_work_day"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendarTypes.nonWorkDay"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5408,12 +4833,6 @@
     },
     "calendarTypes.pendingSpecialVacation" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendarTypes.pendingSpecialVacation"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5424,18 +4843,6 @@
     },
     "calendarTypes.pendingVacation" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendar_entry_pending_vacation"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendarTypes.pendingVacation"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5452,12 +4859,6 @@
     },
     "calendarTypes.pendingZA" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendarTypes.pendingZa"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5468,18 +4869,6 @@
     },
     "calendarTypes.sickLeave" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendar_entry_sick_leave"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendarTypes.sickLeave"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5496,12 +4885,6 @@
     },
     "calendarTypes.specialVacation" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendarTypes.specialVacation"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5512,18 +4895,6 @@
     },
     "calendarTypes.vacation" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendar_entry_vacation"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendarTypes.vacation"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5540,12 +4911,6 @@
     },
     "calendarTypes.za" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "calendarTypes.za"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6228,12 +5593,6 @@
     },
     "common.add" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_add"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6250,12 +5609,6 @@
     },
     "common.all" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.all"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6288,18 +5641,6 @@
     },
     "common.archive" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "action_archive"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.archive"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6332,12 +5673,6 @@
     },
     "common.assign" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "action_assign"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6402,18 +5737,6 @@
     },
     "common.cancel" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_cancel"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.cancel"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6446,12 +5769,6 @@
     },
     "common.changes" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_changes"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6516,12 +5833,6 @@
     },
     "common.create" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.create"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6602,12 +5913,6 @@
     },
     "common.day" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_day"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6624,18 +5929,6 @@
     },
     "common.days" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_days"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.days"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6652,12 +5945,6 @@
     },
     "common.delete" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_delete"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6690,12 +5977,6 @@
     },
     "common.done" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.done"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6712,18 +5993,6 @@
     },
     "common.edit" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_edit"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.edit"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6756,18 +6025,6 @@
     },
     "common.error" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "error_title"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.error"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6800,18 +6057,6 @@
     },
     "common.filter" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "screen_filter"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.filter"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6972,12 +6217,6 @@
     },
     "common.loading" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_loading"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7090,12 +6329,6 @@
     },
     "common.next" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.next"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7128,12 +6361,6 @@
     },
     "common.noData" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.noData"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7166,18 +6393,6 @@
     },
     "common.ok" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_ok"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.ok"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7194,12 +6409,6 @@
     },
     "common.open" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.open"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7248,18 +6457,6 @@
     },
     "common.reactivate" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "action_activate"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.reactivate"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7276,18 +6473,6 @@
     },
     "common.reset" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_reset"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.reset"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7336,12 +6521,6 @@
     },
     "common.retry" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_retry"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7358,18 +6537,6 @@
     },
     "common.save" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_save"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.save"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7402,12 +6569,6 @@
     },
     "common.select.all" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.selectAll"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7440,12 +6601,6 @@
     },
     "common.share" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.share"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7462,18 +6617,6 @@
     },
     "common.show" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common_show"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.show"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7586,12 +6729,6 @@
     },
     "common.today" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.today"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7656,12 +6793,6 @@
     },
     "common.unknown.error" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "error_description"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7710,12 +6841,6 @@
     },
     "common.weeks" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "common.weeks"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7748,18 +6873,6 @@
     },
     "companies.title" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "screen_companies"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "company.list.menuTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7776,12 +6889,6 @@
     },
     "company.overview.create.company" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "company.createButton.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7862,12 +6969,6 @@
     },
     "companyOverview.title" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "companies"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7916,12 +7017,6 @@
     },
     "companydetail.addEmployeeButton.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "company.addEmployeeButton.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8258,12 +7353,6 @@
     },
     "contractrank.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contractRanks.pageTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9610,12 +8699,6 @@
     },
     "createContractRankPlan.field.specialVacation" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contractRankPlan.form.specialVacation.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9978,12 +9061,6 @@
     },
     "createEvent.field.allDay" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "event_allday"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10048,12 +9125,6 @@
     },
     "createEvent.field.notes" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "event_notes"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10070,12 +9141,6 @@
     },
     "createEvent.field.room" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "event_room"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10092,12 +9157,6 @@
     },
     "createEvent.field.title" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "event_title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10114,12 +9173,6 @@
     },
     "createEvent.header.assign" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "assign_participants"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10312,12 +9365,6 @@
     },
     "createSpecialVacation.archive" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "createSpecialVacation.archive"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10334,12 +9381,6 @@
     },
     "createSpecialVacation.delete" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "createSpecialVacation.delete"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10356,12 +9397,6 @@
     },
     "createSpecialVacation.edit" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "createSpecialVacation.edit"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10378,12 +9413,6 @@
     },
     "createSpecialVacation.maxDays" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "special_vacation_maxdays"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10400,18 +9429,6 @@
     },
     "createSpecialVacation.maxDays.duration" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "duration"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "createSpecialVacation.maxDays.duration"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10428,12 +9445,6 @@
     },
     "createSpecialVacation.maxDays.modalDuration" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "createSpecialVacation.maxDays.modalDuration"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10450,12 +9461,6 @@
     },
     "createSpecialVacation.name" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "createSpecialVacation.name"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10472,12 +9477,6 @@
     },
     "createSpecialVacation.name.placeholder" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "createSpecialVacation.placeholder"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10494,12 +9493,6 @@
     },
     "createSpecialVacation.save.create" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "createSpecialVacation.save.create"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10516,12 +9509,6 @@
     },
     "createSpecialVacation.save.edit" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "createSpecialVacation.save.edit"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10538,12 +9525,6 @@
     },
     "createSpecialVacation.title.edit" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "createSpecialVacation.title.edit"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10560,12 +9541,6 @@
     },
     "createSpecialVacation.title.new" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "createSpecialVacation.title.new"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11008,12 +9983,6 @@
     },
     "dashboard.companies.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "dashboard.companies.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11158,12 +10127,6 @@
     },
     "dashboard.screen" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "dashboard_screen"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11542,12 +10505,6 @@
     },
     "departments.menu.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "departments.menuTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11564,12 +10521,6 @@
     },
     "desk.availability" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "desk_availability"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11586,12 +10537,6 @@
     },
     "desk.type.fix" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "desk_type_fix"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11608,12 +10553,6 @@
     },
     "desk.type.flex" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "desk_type_flex"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11678,12 +10617,6 @@
     },
     "deskBooking.book" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "desk_book"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11732,12 +10665,6 @@
     },
     "deskBooking.desk" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "desk_detail_screen"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11754,12 +10681,6 @@
     },
     "deskBooking.desks" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "desk_list_screen"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11824,12 +10745,6 @@
     },
     "deskBooking.filter.hideFix.toggle" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "desk_hide_fix_description"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11846,12 +10761,6 @@
     },
     "deskBooking.lan.connection" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "desk_lan_connection"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12044,12 +10953,6 @@
     },
     "device.archive" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_archive"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12146,12 +11049,6 @@
     },
     "device.history.page.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "devices.history.pageTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12216,18 +11113,6 @@
     },
     "device.usage.ci" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_usage_ci"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "devices.usageType.ci"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12244,12 +11129,6 @@
     },
     "device.usage.infrastructure" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_usage_infrastructure"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12266,18 +11145,6 @@
     },
     "device.usage.testing" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_usage_testing"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "devices.usageType.testing"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12294,18 +11161,6 @@
     },
     "device.usage.work" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_usage_work"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "devices.usageType.workingDevice"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12338,18 +11193,6 @@
     },
     "deviceDetail.button.assign" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_assign"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "devices.addButton.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12382,12 +11225,6 @@
     },
     "deviceDetail.button.assignMe" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "devices.history.self.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12404,18 +11241,6 @@
     },
     "deviceDetail.button.return" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "action_bring_back"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "devices.history.return.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12448,18 +11273,6 @@
     },
     "deviceDetail.filter.active" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_filter_active"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.active"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12476,12 +11289,6 @@
     },
     "deviceDetail.filter.all" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.all"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12498,12 +11305,6 @@
     },
     "deviceDetail.filter.allCompanies" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.allCompanies"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12520,12 +11321,6 @@
     },
     "deviceDetail.filter.allDepartments" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.allDepartments"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12542,12 +11337,6 @@
     },
     "deviceDetail.filter.allEmployees" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.allEmployees"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12564,18 +11353,6 @@
     },
     "deviceDetail.filter.available" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_filter_available"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.available"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12592,18 +11369,6 @@
     },
     "deviceDetail.filter.company.purchased" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_filter_company_purchased"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.company.purchased"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12620,18 +11385,6 @@
     },
     "deviceDetail.filter.company.usage" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_filter_company_usage"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.company.usage"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12648,18 +11401,6 @@
     },
     "deviceDetail.filter.department" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "department"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.department"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12676,18 +11417,6 @@
     },
     "deviceDetail.filter.employee" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_filter_employee"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.employee"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12720,18 +11449,6 @@
     },
     "deviceDetail.filter.inactive" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_filter_inactive"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.inactive"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12764,12 +11481,6 @@
     },
     "deviceDetail.filter.type" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.type"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12786,18 +11497,6 @@
     },
     "deviceDetail.filter.unavailable" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_filter_unavailable"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.unavailable"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12814,18 +11513,6 @@
     },
     "deviceDetail.filter.usage" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_filter_usage"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "deviceDetail.filter.usage"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12874,12 +11561,6 @@
     },
     "deviceDetail.header.specs" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_specs"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12928,12 +11609,6 @@
     },
     "deviceDetail.specs.brand" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_brand"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12966,12 +11641,6 @@
     },
     "deviceDetail.specs.inventoryNumber" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_inventory_number"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12998,12 +11667,6 @@
     },
     "deviceDetail.specs.key.boughtAt" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_bought_at"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13030,12 +11693,6 @@
     },
     "deviceDetail.specs.key.color" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_color"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13062,12 +11719,6 @@
     },
     "deviceDetail.specs.key.cpu" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_cpu"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13094,12 +11745,6 @@
     },
     "deviceDetail.specs.key.diskSize" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_storage"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13212,12 +11857,6 @@
     },
     "deviceDetail.specs.key.productionDate" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_production_date"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13234,12 +11873,6 @@
     },
     "deviceDetail.specs.key.ram" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_ram"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13318,12 +11951,6 @@
     },
     "deviceDetail.specs.key.screen" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_screen"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13402,12 +12029,6 @@
     },
     "deviceDetail.specs.name" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_name"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13450,12 +12071,6 @@
     },
     "deviceDetail.specs.purchaseDate" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_purchase_date"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13472,12 +12087,6 @@
     },
     "deviceDetail.specs.purchasePrice" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_purchase_price"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13504,12 +12113,6 @@
     },
     "deviceDetail.specs.serialNumber" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_serial_number"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13536,12 +12139,6 @@
     },
     "deviceDetail.specs.type" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_type"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13558,12 +12155,6 @@
     },
     "deviceDetail.specs.type.monitor" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_type_monitor"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13580,12 +12171,6 @@
     },
     "deviceDetail.specs.type.pc" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_type_computer"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13602,12 +12187,6 @@
     },
     "deviceDetail.specs.type.phone" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "device_type_phone"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14488,12 +13067,6 @@
     },
     "editCompany.name.textfield.placeholder" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "me"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14574,12 +13147,6 @@
     },
     "employee.afk.status.other.short" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "afk_other_short"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14596,12 +13163,6 @@
     },
     "employee.afk.status.sick.short" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "afk_sick_short"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14618,12 +13179,6 @@
     },
     "employee.afk.status.vacation.short" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "afk_vacation_short"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14640,12 +13195,6 @@
     },
     "employee.afk.status.za.short" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "afk_za"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14950,18 +13499,6 @@
     },
     "employee.status.active" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_status_active"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.status.active"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14978,18 +13515,6 @@
     },
     "employee.status.archived" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_status_archived"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.status.archived"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15006,18 +13531,6 @@
     },
     "employee.status.created" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_status_created"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.status.created"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15034,18 +13547,6 @@
     },
     "employee.status.inactive" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_status_inactive"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.status.inactive"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15062,18 +13563,6 @@
     },
     "employee.status.section.title" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "status"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.status.sectionTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15138,12 +13627,6 @@
     },
     "employeeDetail.advancedData.deleteDialog" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employeeAdvanced.deleteDialog.message"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15176,12 +13659,6 @@
     },
     "employeeDetail.advancedData.department.name" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_department"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15198,12 +13675,6 @@
     },
     "employeeDetail.advancedData.editButton.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employeeAdvanced.editButton.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15220,12 +13691,6 @@
     },
     "employeeDetail.advancedData.fr" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_fr"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15242,12 +13707,6 @@
     },
     "employeeDetail.advancedData.header.allIn" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_all_in"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15264,12 +13723,6 @@
     },
     "employeeDetail.advancedData.header.classification" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_header_classification"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15286,12 +13739,6 @@
     },
     "employeeDetail.advancedData.header.contractRankName" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_kv_classification"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15308,12 +13755,6 @@
     },
     "employeeDetail.advancedData.header.contractRankSince" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_classification_since"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15330,12 +13771,6 @@
     },
     "employeeDetail.advancedData.header.contractRankUpdate" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_next_classification"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15368,12 +13803,6 @@
     },
     "employeeDetail.advancedData.header.hours" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_header_hours"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15390,12 +13819,6 @@
     },
     "employeeDetail.advancedData.header.internalRank" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_internal_rank"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15412,12 +13835,6 @@
     },
     "employeeDetail.advancedData.header.lastPayChange" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_last_salary_change"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15466,12 +13883,6 @@
     },
     "employeeDetail.advancedData.header.minimumSalary" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_min_salary"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15504,12 +13915,6 @@
     },
     "employeeDetail.advancedData.header.note" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_header_note"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15558,12 +13963,6 @@
     },
     "employeeDetail.advancedData.header.salary" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_header_salary"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15612,12 +14011,6 @@
     },
     "employeeDetail.advancedData.mo" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_mo"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15666,12 +14059,6 @@
     },
     "employeeDetail.advancedData.sa" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_sa"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15688,12 +14075,6 @@
     },
     "employeeDetail.advancedData.salaryFulltime" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_ft"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15710,12 +14091,6 @@
     },
     "employeeDetail.advancedData.salaryParttime" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_pt"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15732,12 +14107,6 @@
     },
     "employeeDetail.advancedData.su" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_su"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15754,12 +14123,6 @@
     },
     "employeeDetail.advancedData.th" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_th"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15776,12 +14139,6 @@
     },
     "employeeDetail.advancedData.tu" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_tu"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15798,12 +14155,6 @@
     },
     "employeeDetail.advancedData.validFrom" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employeeAdvanced.validFrom"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15836,12 +14187,6 @@
     },
     "employeeDetail.advancedData.we" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "contract_we"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15906,12 +14251,6 @@
     },
     "employeeDetail.contracts" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "screen_contracts"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15960,12 +14299,6 @@
     },
     "employeeDetail.editPicture.edit" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "edit"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16078,12 +14411,6 @@
     },
     "employeeDetail.header.afk" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.afk.menuTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16116,12 +14443,6 @@
     },
     "employeeDetail.header.documents" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "documents"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16138,12 +14459,6 @@
     },
     "employeeDetail.header.mood" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "mood"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16192,18 +14507,6 @@
     },
     "employeeDetail.header.timetable" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_timetable_title"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.projectPlanning.scheduleForWeek"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16294,12 +14597,6 @@
     },
     "employeeDetail.personalData.address" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "street"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16348,12 +14645,6 @@
     },
     "employeeDetail.personalData.bankName" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_detail_bank_name"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16380,12 +14671,6 @@
     },
     "employeeDetail.personalData.bic" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_detail_bank_bic"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16428,12 +14713,6 @@
     },
     "employeeDetail.personalData.buddy" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_detail_buddy"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16450,12 +14729,6 @@
     },
     "employeeDetail.personalData.buddyFrom" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employeeDetail.personalData.buddyFrom"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16472,18 +14745,6 @@
     },
     "employeeDetail.personalData.citizenship" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_detail_citizenship"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employeeDetail.personalData.citizenship.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16500,12 +14761,6 @@
     },
     "employeeDetail.personalData.citizenship.placeholder" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employeeDetail.personalData.citizenship.placeholder"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16590,12 +14845,6 @@
     },
     "employeeDetail.personalData.iban" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_detail_bank_iban"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16622,12 +14871,6 @@
     },
     "employeeDetail.personalData.joined" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_entry_date"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16750,12 +14993,6 @@
     },
     "employeeDetail.personalData.mentor" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_detail_mentor"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16772,12 +15009,6 @@
     },
     "employeeDetail.personalData.mentorFrom" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employeeDetail.personalData.mentorFrom"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16833,12 +15064,6 @@
     },
     "employeeDetail.personalData.phone.private" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_detail_phone_private"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16865,12 +15090,6 @@
     },
     "employeeDetail.personalData.phone.work" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "phone_work"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17013,12 +15232,6 @@
     },
     "employeeDetail.personalData.readmineName" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_detail_redmine_name"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17109,18 +15322,6 @@
     },
     "employeeDetail.personalData.section.bankInformation" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_detail_bank_info"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employeeDetail.personalData.section.bankInformation"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17185,12 +15386,6 @@
     },
     "employeeDetail.personalData.section.companyRelatedData" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employeeDetail.personalData.section.companyRelatedData"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17223,12 +15418,6 @@
     },
     "employeeDetail.personalData.section.personal" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employeeDetail.personalData.section.personal"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17245,12 +15434,6 @@
     },
     "employeeDetail.personalData.section.primaryAddress" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employeeDetail.personalData.section.primaryAddress"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17283,12 +15466,6 @@
     },
     "employeeDetail.personalData.section.secondaryAddress" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employeeDetail.personalData.section.secondaryAddress"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17357,12 +15534,6 @@
     },
     "employeeDetail.personalData.slackId" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "slack"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17531,12 +15702,6 @@
     },
     "employeeDetail.timetable.available" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.projectPlanning.available"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17585,12 +15750,6 @@
     },
     "employeeDetail.timetable.planned" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.projectPlanning.scheduled"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17623,12 +15782,6 @@
     },
     "employeeDetail.timetable.tracked" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.projectPlanning.tracked"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17693,12 +15846,6 @@
     },
     "employeeOverview.title" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees_screen"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17715,12 +15862,6 @@
     },
     "employees.afk.status.otherShort" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.AFKStatus.otherShort"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17737,12 +15878,6 @@
     },
     "employees.screen" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.menuTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17983,12 +16118,6 @@
     },
     "error.forbidden" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "error.forbidden"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18021,12 +16150,6 @@
     },
     "eventDetail.accept.option" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.accept"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18043,12 +16166,6 @@
     },
     "eventDetail.accepted.status" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.accepted.status"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18065,12 +16182,6 @@
     },
     "eventDetail.decline.option" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.decline"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18087,12 +16198,6 @@
     },
     "eventDetail.declined.status" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.declined.status"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18109,18 +16214,6 @@
     },
     "eventDetail.field.end" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "event_end"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.field.end"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18137,12 +16230,6 @@
     },
     "eventDetail.field.note" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.field.note"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18159,12 +16246,6 @@
     },
     "eventDetail.field.room" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.field.room"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18181,18 +16262,6 @@
     },
     "eventDetail.field.start" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "event_start"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.field.start"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18209,18 +16278,6 @@
     },
     "eventDetail.field.url" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "event_url"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.field.url"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18237,18 +16294,6 @@
     },
     "eventDetail.header.creator" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "event_creator"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.header.creator"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18265,18 +16310,6 @@
     },
     "eventDetail.header.invited" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "event_invited"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.header.invited"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18309,12 +16342,6 @@
     },
     "eventDetail.open.status" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.open.status"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18331,12 +16358,6 @@
     },
     "eventDetail.status" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "eventDetail.status"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18369,12 +16390,6 @@
     },
     "feature.form.billable.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "feature.form.billable.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18426,12 +16441,6 @@
     },
     "feature.form.description.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "feature.form.description.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18592,12 +16601,6 @@
     },
     "feature.form.title.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "feature.form.title.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18646,12 +16649,6 @@
     },
     "fields.acadTitle.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.acadTitle.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18668,18 +16665,6 @@
     },
     "fields.address.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "address"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.address.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18712,12 +16697,6 @@
     },
     "fields.bank.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.bank.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18734,12 +16713,6 @@
     },
     "fields.bank.placeholder" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.bank.placeholder"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18756,12 +16729,6 @@
     },
     "fields.bic.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.bic.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18778,12 +16745,6 @@
     },
     "fields.bic.placeholder" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.bic.placeholder"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18800,18 +16761,6 @@
     },
     "fields.birthDate.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "birthday"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.birthDate.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18828,18 +16777,6 @@
     },
     "fields.choose.employee.placeholder" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employee_choose"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.employee.placeholder"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18856,12 +16793,6 @@
     },
     "fields.citizenship.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.citizenship.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18878,18 +16809,6 @@
     },
     "fields.company.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "company"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.company.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18906,12 +16825,6 @@
     },
     "fields.date.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.date.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18928,18 +16841,6 @@
     },
     "fields.firstName.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "first_name"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.firstName.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18972,12 +16873,6 @@
     },
     "fields.housenumber.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.houseNumber.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18994,12 +16889,6 @@
     },
     "fields.iban.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.iban.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19016,12 +16905,6 @@
     },
     "fields.iban.placeholder" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.iban.placeholder"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19038,18 +16921,6 @@
     },
     "fields.joinDate.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "join_date"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.joinDate.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19066,18 +16937,6 @@
     },
     "fields.lastName.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "last_name"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.lastName.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19094,12 +16953,6 @@
     },
     "fields.location.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.location.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19116,12 +16969,6 @@
     },
     "fields.postAcadTitle.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.postAcadTitle.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19138,12 +16985,6 @@
     },
     "fields.postCode.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.postCode.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19160,12 +17001,6 @@
     },
     "fields.relationshipStatus.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.relationshipStatus.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19182,12 +17017,6 @@
     },
     "fields.rest.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.rest.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19204,12 +17033,6 @@
     },
     "fields.socialSecurityNumber.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.socialSecurityNumber.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19242,12 +17065,6 @@
     },
     "fields.street.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.street.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19264,12 +17081,6 @@
     },
     "fields.yearlyClaim.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fields.yearlyClaim.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19382,12 +17193,6 @@
     },
     "internalrank.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "internalRanks.pageTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19404,12 +17209,6 @@
     },
     "location.overview.create" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "locations.createButton.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19442,12 +17241,6 @@
     },
     "location.overview.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "locations.pageTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19464,12 +17257,6 @@
     },
     "login" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "login_action"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19486,12 +17273,6 @@
     },
     "logout" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "logout_action"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19524,12 +17305,6 @@
     },
     "mood.create.desciption.1" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.mood.1"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19546,12 +17321,6 @@
     },
     "mood.create.desciption.10" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.mood.10"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19568,12 +17337,6 @@
     },
     "mood.create.desciption.2" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.mood.2"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19590,12 +17353,6 @@
     },
     "mood.create.desciption.3" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.mood.3"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19612,12 +17369,6 @@
     },
     "mood.create.desciption.4" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.mood.4"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19634,12 +17385,6 @@
     },
     "mood.create.desciption.5" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.mood.5"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19656,12 +17401,6 @@
     },
     "mood.create.desciption.6" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.mood.6"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19678,12 +17417,6 @@
     },
     "mood.create.desciption.7" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.mood.7"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19700,12 +17433,6 @@
     },
     "mood.create.desciption.8" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.mood.8"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19722,12 +17449,6 @@
     },
     "mood.create.desciption.9" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.mood.9"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19744,12 +17465,6 @@
     },
     "mood.create.emoji.1" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.emoji.1"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19766,12 +17481,6 @@
     },
     "mood.create.emoji.10" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.emoji.10"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19788,12 +17497,6 @@
     },
     "mood.create.emoji.2" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.emoji.2"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19810,12 +17513,6 @@
     },
     "mood.create.emoji.3" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.emoji.3"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19832,12 +17529,6 @@
     },
     "mood.create.emoji.4" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.emoji.4"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19854,12 +17545,6 @@
     },
     "mood.create.emoji.5" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.emoji.5"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19876,12 +17561,6 @@
     },
     "mood.create.emoji.6" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.emoji.6"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19898,12 +17577,6 @@
     },
     "mood.create.emoji.7" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.emoji.7"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19920,12 +17593,6 @@
     },
     "mood.create.emoji.8" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.emoji.8"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19942,12 +17609,6 @@
     },
     "mood.create.emoji.9" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "moods.emoji.9"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20133,12 +17794,6 @@
     },
     "noggle.break" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "noggl_type_break"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20155,12 +17810,6 @@
     },
     "noggle.comment" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "noggl_comment"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20177,12 +17826,6 @@
     },
     "noggle.comment.placeholder" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "noggl_question"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20199,12 +17842,6 @@
     },
     "noggle.ineffektive" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "noggl_type_ineffective"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20221,12 +17858,6 @@
     },
     "noggle.work" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "noggl_type_work"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20539,12 +18170,6 @@
     },
     "order.details.discount" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "order.details.discount"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20561,12 +18186,6 @@
     },
     "order.details.hourlyRate" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "order.details.hourlyRate"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20599,12 +18218,6 @@
     },
     "order.details.total.cost" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "order.details.totalCost"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20637,12 +18250,6 @@
     },
     "order.details.travel.costs" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "order.details.travelCost"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20659,12 +18266,6 @@
     },
     "order.status.completed" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "order.status.completed"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20697,12 +18298,6 @@
     },
     "permissions.AdminReadable" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.neinAdmin"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20719,12 +18314,6 @@
     },
     "permissions.CanApproveVacationReadable" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.afkCanApproveVacation"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20741,12 +18330,6 @@
     },
     "permissions.CanSeeTimetrackingReadable" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.afkCanSeeTimetracking"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20763,12 +18346,6 @@
     },
     "permissions.EditDevicelistReadable" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.neinEditDevicelist"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20785,12 +18362,6 @@
     },
     "permissions.EditNotesReadable" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.neinEditNotes"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20839,12 +18410,6 @@
     },
     "permissions.SeeAllMoodReadable" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.neinSeeAllMood"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20861,12 +18426,6 @@
     },
     "permissions.SeeEmployeeAdvancedReadable" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.neinSeeEmployeeAdvanced"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20883,12 +18442,6 @@
     },
     "permissions.awardManager.readable" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.neinAwardManager"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20899,12 +18452,6 @@
     },
     "permissions.canApproveTimetrackings" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.afkCanApproveTimetracking"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20915,12 +18462,6 @@
     },
     "permissions.deskManager" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.neinDeskManager"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20937,12 +18478,6 @@
     },
     "permissions.finance" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.neinFinance"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20953,12 +18488,6 @@
     },
     "permissions.menuTitle" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.menuTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20975,12 +18504,6 @@
     },
     "permissions.projectManager" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "permissions.neinProjectManager"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21205,12 +18728,6 @@
     },
     "preCreateVacation.date.end" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "action_to"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21227,12 +18744,6 @@
     },
     "preCreateVacation.date.section" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "action_date"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21249,12 +18760,6 @@
     },
     "preCreateVacation.date.start" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "action_from"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21287,12 +18792,6 @@
     },
     "preCreateVacation.mode.vacation" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "action_vaction"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21309,12 +18808,6 @@
     },
     "preCreateVacation.next" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "action_next"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21331,12 +18824,6 @@
     },
     "profile.settings.birthDate.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "profile.settings.birthDate.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21369,12 +18856,6 @@
     },
     "profile.settings.email.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "profile.settings.email.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21407,12 +18888,6 @@
     },
     "profile.settings.phoneNumber.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "profile.settings.phoneNumber.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21429,12 +18904,6 @@
     },
     "profile.settings.privacyInfo" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "profile.settings.privacyInfo"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21451,12 +18920,6 @@
     },
     "profile.settings.privacyTitle" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "profile.settings.privacyTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21473,12 +18936,6 @@
     },
     "profilte.title" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "profile"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23711,12 +21168,6 @@
     },
     "project.planning" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "project_planning"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24361,12 +21812,6 @@
     },
     "projects" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "employees.projectPlanning.menuTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24495,12 +21940,6 @@
     },
     "quick.checkin.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "quick_checkin_label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24869,12 +22308,6 @@
     },
     "report.month.mode.sick.leave" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "report.month.mode.sickLeave"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24891,12 +22324,6 @@
     },
     "report.month.mode.time.balance" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "report.month.mode.timeBalance"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24913,12 +22340,6 @@
     },
     "report.month.mode.time.sheet" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "report.month.mode.timeSheet"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24935,12 +22356,6 @@
     },
     "report.month.mode.vacation" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "report.month.mode.vacation"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24957,12 +22372,6 @@
     },
     "report.year.mode.employee.budget" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "report.year.mode.salary"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24979,12 +22388,6 @@
     },
     "report.year.mode.home.office" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "report.year.mode.homeOffice"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25001,12 +22404,6 @@
     },
     "report.year.mode.special.vacation" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "report.year.mode.specialVacation"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25023,12 +22420,6 @@
     },
     "roomDetail.addEvent.button" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "book_room"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25045,12 +22436,6 @@
     },
     "roomDetail.feature.appleTv" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "apple_tv"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25067,12 +22452,6 @@
     },
     "roomDetail.feature.chromecast" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "chromecast"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25089,12 +22468,6 @@
     },
     "roomDetail.feature.television" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "tv"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25111,12 +22484,6 @@
     },
     "roomDetail.features.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "features"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25133,12 +22500,6 @@
     },
     "roomDetail.personCapacity.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "capacity"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25203,12 +22564,6 @@
     },
     "roomOverview.title" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "rooms_list_screen"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25289,12 +22644,6 @@
     },
     "screen.device" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "screen_device"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25311,12 +22660,6 @@
     },
     "search.placeholder" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "globalSearch.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25631,12 +22974,6 @@
     },
     "settings.screen" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "settings_screen"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25669,12 +23006,6 @@
     },
     "sickLeave.dateEnd.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sickLeave.dateEnd.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25691,12 +23022,6 @@
     },
     "sickLeave.dateStart.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sickLeave.dateStart.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25777,18 +23102,6 @@
     },
     "sickLeave.end.button" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sickleave_end_action"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sickLeave.end.button"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25805,18 +23118,6 @@
     },
     "sickLeave.end.description" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "end_sick_tip"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sickLeave.end.description"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25849,12 +23150,6 @@
     },
     "sickLeave.note.label" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sickLeave.note.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25871,18 +23166,6 @@
     },
     "sickLeave.note.placeholder" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sick_comment_hint"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sickLeave.note.placeholder"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25915,18 +23198,6 @@
     },
     "sickLeave.start.button" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sickleave_start_action"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sickLeave.start.button"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25943,12 +23214,6 @@
     },
     "sickLeave.start.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sickleave_start_screen"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25965,12 +23230,6 @@
     },
     "specialVacationOverview.add" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "specialVacationOverview.add"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26019,12 +23278,6 @@
     },
     "specialVacationOverview.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "specialVacationOverview.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26105,12 +23358,6 @@
     },
     "time.tracking.options.closeAfterDelete" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timeTracking.options.closeAfterDelete"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26127,12 +23374,6 @@
     },
     "time.tracking.options.closeAfterSave" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timeTracking.options.closeAfterSave"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26149,12 +23390,6 @@
     },
     "time.tracking.options.defaultValues" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timeTracking.options.defaultValues"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26203,12 +23438,6 @@
     },
     "time.tracking.options.section.behavior" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timeTracking.options.section.behavior"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26225,12 +23454,6 @@
     },
     "time.tracking.options.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timeTracking.options.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26343,18 +23566,6 @@
     },
     "timetracking.comment.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_order_section_comment"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.projects.track.description.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26387,12 +23598,6 @@
     },
     "timetracking.create.break" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.create.break"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26409,12 +23614,6 @@
     },
     "timetracking.create.comment" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.create.comment.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26431,18 +23630,6 @@
     },
     "timetracking.create.comment.placeholder" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_note_hint"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.create.comment.placeholder"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26459,12 +23646,6 @@
     },
     "timetracking.create.from" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.create.from"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26497,12 +23678,6 @@
     },
     "timetracking.create.ineffective" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.create.ineffective.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26519,12 +23694,6 @@
     },
     "timetracking.create.ineffective.description" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.create.ineffective.description"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26541,12 +23710,6 @@
     },
     "timetracking.create.netto.worktime" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.create.netto.worktime"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26563,18 +23726,6 @@
     },
     "timetracking.create.projects.title" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_overview_project_times"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.create.projects.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26591,12 +23742,6 @@
     },
     "timetracking.create.remove.entry" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.create.remove.entry"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26613,18 +23758,6 @@
     },
     "timetracking.create.save" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "save"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.create.save"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26641,12 +23774,6 @@
     },
     "timetracking.create.to" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.create.to"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26679,18 +23806,6 @@
     },
     "timetracking.day.break" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_break"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.day.break"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26707,12 +23822,6 @@
     },
     "timetracking.day.from" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_from"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26729,18 +23838,6 @@
     },
     "timetracking.day.homeoffice" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_home_office"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.day.homeoffice"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26757,18 +23854,6 @@
     },
     "timetracking.day.ineffective" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_ineffective"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.day.ineffective"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26785,12 +23870,6 @@
     },
     "timetracking.day.overview" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_overview"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26807,12 +23886,6 @@
     },
     "timetracking.day.overview.daysum" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_daysum"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26829,18 +23902,6 @@
     },
     "timetracking.day.overview.redmine.accuracy" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_redmine_accuracy"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.day.overview.redmine.accuracy"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26857,18 +23918,6 @@
     },
     "timetracking.day.overview.target" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_target"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.day.overview.target"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26885,18 +23934,6 @@
     },
     "timetracking.day.redmine" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_label_redmine"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.day.redmine"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26913,12 +23950,6 @@
     },
     "timetracking.day.redmine.create" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.day.project.add"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26935,12 +23966,6 @@
     },
     "timetracking.day.to" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_to"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26957,12 +23982,6 @@
     },
     "timetracking.day.workday.create" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.day.workday.create"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26979,12 +23998,6 @@
     },
     "timetracking.day.workday.edit" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.day.workday.edit"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27001,18 +24014,6 @@
     },
     "timetracking.day.worked" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_effective"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.day.worked"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27029,18 +24030,6 @@
     },
     "timetracking.department.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_order_department_section"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.projects.track.department.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27265,18 +24254,6 @@
     },
     "timetracking.feature.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_order_feature_section"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.projects.track.feature.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27325,12 +24302,6 @@
     },
     "timetracking.init.activate" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.init.activate"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27347,12 +24318,6 @@
     },
     "timetracking.init.start" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.init.start.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27363,12 +24328,6 @@
     },
     "timetracking.init.start.description" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.init.start.description"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27385,12 +24344,6 @@
     },
     "timetracking.init.transfer.footer" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.init.transfer.footer"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27407,12 +24360,6 @@
     },
     "timetracking.init.transfer.hours" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.init.transfer.hours"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27429,12 +24376,6 @@
     },
     "timetracking.init.transfer.minutes" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.init.transfer.minutes"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27451,12 +24392,6 @@
     },
     "timetracking.init.transfer.section" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.init.transfer.section"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27473,12 +24408,6 @@
     },
     "timetracking.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_screen"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27527,18 +24456,6 @@
     },
     "timetracking.month.confirm.action.title" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_month_confirm"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.month.confirm.action.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27555,12 +24472,6 @@
     },
     "timetracking.month.confirm.confirm.action" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.month.confirm.confirm.action"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27577,18 +24488,6 @@
     },
     "timetracking.month.confirm.confirm.title" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_month_confirm_text"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.month.confirm.confirm.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27749,12 +24648,6 @@
     },
     "timetracking.month.overview.account" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.month.overview.account"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27771,12 +24664,6 @@
     },
     "timetracking.month.overview.effective" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_month_effective_working_hours"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27793,18 +24680,6 @@
     },
     "timetracking.month.overview.hoDays" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_month_ho"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.month.overview.hoDays"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27821,12 +24696,6 @@
     },
     "timetracking.month.overview.ineffective" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_month_ineffective_working_hours"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27843,12 +24712,6 @@
     },
     "timetracking.month.overview.redmine.accuracy" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.month.overview.redmine.accuracy"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27865,18 +24728,6 @@
     },
     "timetracking.month.overview.section.title" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_month_title"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.month.overview.section.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27893,18 +24744,6 @@
     },
     "timetracking.month.overview.sickleaveDays" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_month_sickleave"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.month.overview.sickleave"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27937,18 +24776,6 @@
     },
     "timetracking.month.overview.target" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_month_target"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.month.overview.target"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27965,18 +24792,6 @@
     },
     "timetracking.month.overview.vacationDays" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_month_vacation_usage"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.month.overview.vacationDays"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27993,12 +24808,6 @@
     },
     "timetracking.month.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.month.overview.status"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28047,18 +24856,6 @@
     },
     "timetracking.order.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_order_section"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.projects.track.order.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28075,12 +24872,6 @@
     },
     "timetracking.overview.admin.accuracy" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.admin.accuracy"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28097,12 +24888,6 @@
     },
     "timetracking.overview.admin.diff" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.admin.diff"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28119,12 +24904,6 @@
     },
     "timetracking.overview.admin.homeOffice" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.admin.homeOffice"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28141,12 +24920,6 @@
     },
     "timetracking.overview.admin.ineffective" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.admin.ineffective"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28179,12 +24952,6 @@
     },
     "timetracking.overview.admin.sickLeave" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.admin.sickLeave"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28201,12 +24968,6 @@
     },
     "timetracking.overview.admin.status" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.admin.status"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28223,12 +24984,6 @@
     },
     "timetracking.overview.admin.target" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.admin.target"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28245,12 +25000,6 @@
     },
     "timetracking.overview.admin.vacation" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.admin.vacation"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28299,18 +25048,6 @@
     },
     "timetracking.overview.balance" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_month_balance"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.balance"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28343,18 +25080,6 @@
     },
     "timetracking.overview.configuration.carryover" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_carry_over"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.configuration.carryover"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28387,12 +25112,6 @@
     },
     "timetracking.overview.configuration.start" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.configuration.start"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28451,12 +25170,6 @@
     },
     "timetracking.overview.status.deativated.admin.action" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.status.deativated.admin.action"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28473,12 +25186,6 @@
     },
     "timetracking.overview.status.deativated.admin.text" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.status.deativated.admin.text"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28495,12 +25202,6 @@
     },
     "timetracking.overview.status.deativated.admin.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.status.deativated.admin.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28517,12 +25218,6 @@
     },
     "timetracking.overview.status.deativated.text" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.status.deativated.text"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28539,12 +25234,6 @@
     },
     "timetracking.overview.status.deativated.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.overview.status.deativated.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28587,12 +25276,6 @@
     },
     "timetracking.overview.vacation" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_overview_vacation"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28721,18 +25404,6 @@
     },
     "timetracking.project.date" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_orders_date"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.projects.track.date.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28765,18 +25436,6 @@
     },
     "timetracking.project.duration" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_orders_duration"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.projects.track.duration.label"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28937,12 +25596,6 @@
     },
     "timetracking.search.hint" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_search_hint"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28991,18 +25644,6 @@
     },
     "timetracking.status.approved" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_status_approved"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.status.approved"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29019,18 +25660,6 @@
     },
     "timetracking.status.confirmed" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_status_confirmed"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.status.confirmed"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29095,18 +25724,6 @@
     },
     "timetracking.status.locked" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_status_locked"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.status.locked"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29123,18 +25740,6 @@
     },
     "timetracking.status.open" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_status_open"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.status.open"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29151,18 +25756,6 @@
     },
     "timetracking.status.rejected" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking_status_rejected"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "timetracking.status.rejected"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29723,12 +26316,6 @@
     },
     "todos.createStatus" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "todos.createStatus"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29745,12 +26332,6 @@
     },
     "todos.deadline" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "todos.deadline"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29767,12 +26348,6 @@
     },
     "todos.delete.accept" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "todos.delete.accept"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29789,12 +26364,6 @@
     },
     "todos.delete.decline" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "todos.delete.decline"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29811,12 +26380,6 @@
     },
     "todos.delete.message" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "todos.delete.message"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29833,12 +26396,6 @@
     },
     "todos.empty" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "todos.empty"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29855,12 +26412,6 @@
     },
     "todos.forThisPage" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "todos.forThisPage"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29877,12 +26428,6 @@
     },
     "todos.goToTodos" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "todos.goToTodos"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29899,12 +26444,6 @@
     },
     "todos.menuTitle" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "todos.menuTitle"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29915,12 +26454,6 @@
     },
     "todos.widget.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "todos.widget.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29937,12 +26470,6 @@
     },
     "vacation.request.label" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "afk_request_screen"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29959,12 +26486,6 @@
     },
     "vacations.history.initial.decreased" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.history.initial.decreased"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29981,12 +26502,6 @@
     },
     "vacations.history.initial.increased" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.history.initial.increased"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -30003,12 +26518,6 @@
     },
     "vacations.history.oneTime.increased" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.history.oneTime.increased"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -30025,12 +26534,6 @@
     },
     "vacations.history.oneTime.reduced" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.history.oneTime.reduced"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -30047,12 +26550,6 @@
     },
     "vacations.history.title" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.history.title"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -30069,12 +26566,6 @@
     },
     "vacations.history.vacation.reduced" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.history.vacation.reduced"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -30091,12 +26582,6 @@
     },
     "vacations.history.vacationCancel.increased" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.history.vacationCancel.increased"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -30113,12 +26598,6 @@
     },
     "vacations.history.yearly.increased" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.history.yearly.increased"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -30135,12 +26614,6 @@
     },
     "vacations.history.yearly.reduced" : {
       "localizations" : {
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "vacations.history.yearly.reduced"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -30157,12 +26630,6 @@
     },
     "version" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "version"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -30323,12 +26790,6 @@
     },
     "workingHours.holidayShortcut" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "workdays_holiday_shortcut"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -30345,18 +26806,6 @@
     },
     "workingHours.sickLeaveShortcut" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "workdays_sickleave_shortcut"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "workingHours.sickLeaveShortcut"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -30373,18 +26822,6 @@
     },
     "workingHours.vacationShortcut" : {
       "localizations" : {
-        "Identifier Android" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "workdays_vacation_shortcut"
-          }
-        },
-        "Identifier Web" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "workingHours.vacationShortcut"
-          }
-        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
