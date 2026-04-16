@@ -223,6 +223,19 @@ final class StringCatalogWriterTests: XCTestCase {
         XCTAssertNil(catalog.strings["empty.key"]?.localizations)
     }
 
+    func test_buildCatalog_filtersInvalidLanguageKeys() {
+        let entries = [
+            ParsedEntry(
+                key: "welcome",
+                translations: ["de": "Willkommen", "Android Identifier": "welcome_android"]
+            )
+        ]
+        let catalog = StringCatalogWriter.buildCatalog(entries: entries, sourceLanguage: "de")
+
+        XCTAssertEqual(catalog.strings["welcome"]?.localizations?["de"]?.stringUnit.value, "Willkommen")
+        XCTAssertNil(catalog.strings["welcome"]?.localizations?["Android Identifier"])
+    }
+
     func test_encode_producesValidJSON() throws {
         let entries = [ParsedEntry(key: "a.key", translations: ["de": "Hallo"])]
         let catalog = StringCatalogWriter.buildCatalog(entries: entries, sourceLanguage: "de")

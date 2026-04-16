@@ -57,10 +57,16 @@ public enum SheetParser {
         guard !rows.isEmpty else { return [] }
 
         let headerRow = rows[0].map { $0.trimmingCharacters(in: .whitespaces) }
+        SyncLogger.info("Sheet header row: \(headerRow)")
         guard let layout = discoverColumns(headerRow: headerRow) else {
             SyncLogger.info("No Columns found!")
             return []
         }
+
+        let discoveredLanguages = layout.languageColumns.keys.sorted()
+        SyncLogger.info(
+            "Discovered language columns: \(discoveredLanguages.isEmpty ? "none" : discoveredLanguages.joined(separator: ", "))"
+        )
 
         var entries: [ParsedEntry] = []
         for row in rows.dropFirst() {
@@ -82,12 +88,22 @@ public enum SheetParser {
         }
 
         var languageColumns: [String: Int] = [:]
+        var ignoredNonLanguageHeaders: [String] = []
         for (index, header) in headerRow.enumerated() {
             guard index != identifierIndex else { continue }
             guard index < commentIndex else { continue }
             guard !header.isEmpty else { continue }
-            guard isValidShortLanguageCode(header) else { continue }
+            guard isValidShortLanguageCode(header) else {
+                ignoredNonLanguageHeaders.append(header)
+                continue
+            }
             languageColumns[header.lowercased()] = index
+        }
+
+        if !ignoredNonLanguageHeaders.isEmpty {
+            SyncLogger.warning(
+                "Ignoring non-language header(s) before 'Kommentar': \(ignoredNonLanguageHeaders.joined(separator: ", "))"
+            )
         }
 
         return SheetColumnLayout(

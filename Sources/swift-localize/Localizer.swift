@@ -109,6 +109,11 @@ public actor Localizer {
 
         let entries = SheetParser.parse(rows: rows)
 
+        let parsedLanguages = Set(entries.flatMap { $0.translations.keys }).sorted()
+        SyncLogger.info(
+            "[\(tabName)] Parsed language keys from rows: \(parsedLanguages.isEmpty ? "none" : parsedLanguages.joined(separator: ", "))"
+        )
+
         // Load existing catalog for diff logging.
         let catalogPath = outputPath(for: tabName)
         let existingCatalog = try StringCatalogReader.read(from: catalogPath)
