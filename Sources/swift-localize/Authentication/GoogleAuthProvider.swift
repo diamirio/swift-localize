@@ -5,19 +5,25 @@ import Security
 
 /// Errors that can occur during authentication.
 public enum AuthError: Error, LocalizedError {
+    case invalidConfiguration(String)
     case invalidPrivateKey(String)
     case jwtSigningFailed(String)
     case tokenRequestFailed(Int, String)
+    case invalidHTTPResponse
     case invalidTokenResponse
 
     public var errorDescription: String? {
         switch self {
+        case .invalidConfiguration(let detail):
+            return "Invalid authentication configuration: \(detail)"
         case .invalidPrivateKey(let detail):
             return "Invalid private key: \(detail)"
         case .jwtSigningFailed(let detail):
             return "JWT signing failed: \(detail)"
         case .tokenRequestFailed(let code, let body):
             return "Token request failed with HTTP \(code): \(body)"
+        case .invalidHTTPResponse:
+            return "Token endpoint did not return an HTTP response."
         case .invalidTokenResponse:
             return "Token response did not contain an access_token."
         }
@@ -53,20 +59,29 @@ public actor GoogleAuthProvider {
     private func fetchToken() async throws -> (token: String, expiresIn: Int) {
         let jwt = try buildSignedJWT()
 
-        var request = URLRequest(url: URL(string: credentials.tokenUri)!)
+        guard let tokenURL = URL(string: credentials.tokenUri) else {
+            throw AuthError.invalidConfiguration("Invalid token URI: \(credentials.tokenUri)")
+        }
+
+        var request = URLRequest(url: tokenURL)
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 
-        let body = [
-            "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
-            "assertion": jwt
+        var bodyComponents = URLComponents()
+        bodyComponents.queryItems = [
+            URLQueryItem(name: "grant_type", value: "urn:ietf:params:oauth:grant-type:jwt-bearer"),
+            URLQueryItem(name: "assertion", value: jwt),
         ]
-        .map { "\($0.key)=\($0.value)" }
-        .joined(separator: "&")
-        request.httpBody = body.data(using: .utf8)
+
+        guard let body = bodyComponents.percentEncodedQuery?.data(using: .utf8) else {
+            throw AuthError.invalidConfiguration("Could not encode token request body.")
+        }
+        request.httpBody = body
 
         let (data, response) = try await URLSession.shared.data(for: request)
-        let httpResponse = response as! HTTPURLResponse
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw AuthError.invalidHTTPResponse
+        }
 
         guard httpResponse.statusCode == 200 else {
             let body = String(data: data, encoding: .utf8) ?? ""
@@ -84,20 +99,17 @@ public actor GoogleAuthProvider {
         let now = Int(Date().timeIntervalSince1970)
         let expiry = now + 3600
 
-        // Header
-        let header = #"{"alg":"RS256","typ":"JWT"}"#
-        let claims = """
-        {
-          "iss": "\(credentials.clientEmail)",
-          "scope": "https://www.googleapis.com/auth/spreadsheets",
-          "aud": "\(credentials.tokenUri)",
-          "iat": \(now),
-          "exp": \(expiry)
-        }
-        """
+        let header = JWTHeader(alg: "RS256", typ: "JWT")
+        let claims = JWTClaims(
+            iss: credentials.clientEmail,
+            scope: "https://www.googleapis.com/auth/spreadsheets",
+            aud: credentials.tokenUri,
+            iat: now,
+            exp: expiry
+        )
 
-        let encodedHeader = base64URLEncode(header.data(using: .utf8)!)
-        let encodedClaims = base64URLEncode(claims.data(using: .utf8)!)
+        let encodedHeader = base64URLEncode(try JSONEncoder().encode(header))
+        let encodedClaims = base64URLEncode(try JSONEncoder().encode(claims))
         let signingInput = "\(encodedHeader).\(encodedClaims)"
 
         let signature = try signRS256(message: signingInput, pemKey: credentials.privateKey)
@@ -105,22 +117,13 @@ public actor GoogleAuthProvider {
     }
 
     private func signRS256(message: String, pemKey: String) throws -> String {
-        let keyData = try PEMKeyDecoder.decodeRSAPrivateKeyData(from: pemKey)
+        let privateKey = try PrivateKeyImporter.importRSAPrivateKey(from: pemKey)
 
-        var error: Unmanaged<CFError>?
-        guard let privateKey = SecKeyCreateWithData(
-            keyData as CFData,
-            [
-                kSecAttrKeyType: kSecAttrKeyTypeRSA,
-                kSecAttrKeyClass: kSecAttrKeyClassPrivate
-            ] as CFDictionary,
-            &error
-        ) else {
-            let detail = error.map { CFErrorCopyDescription($0.takeRetainedValue()) as String } ?? "unknown"
-            throw AuthError.invalidPrivateKey(detail)
+        guard let messageData = message.data(using: .utf8) else {
+            throw AuthError.jwtSigningFailed("Could not encode signing input.")
         }
 
-        let messageData = message.data(using: .utf8)!
+        var error: Unmanaged<CFError>?
         guard let signature = SecKeyCreateSignature(
             privateKey,
             .rsaSignatureMessagePKCS1v15SHA256,
@@ -142,10 +145,8 @@ public actor GoogleAuthProvider {
     }
 }
 
-enum PEMKeyDecoder {
-    private static let rsaEncryptionOID = Data([0x2A, 0x86, 0x48, 0x86, 0xF7, 0x0D, 0x01, 0x01, 0x01])
-
-    static func decodeRSAPrivateKeyData(from pem: String) throws -> Data {
+enum PrivateKeyImporter {
+    static func importRSAPrivateKey(from pem: String) throws -> SecKey {
         let normalizedPEM = pem
             .replacingOccurrences(of: "\\n", with: "\n")
             .trimmingCharacters(in: .whitespacesAndNewlines)
@@ -154,165 +155,82 @@ enum PEMKeyDecoder {
             throw AuthError.invalidPrivateKey("Encrypted private keys are not supported.")
         }
 
-        let decodedDER = try decodePEMBody(from: normalizedPEM)
-
-        if normalizedPEM.contains("-----BEGIN RSA PRIVATE KEY-----") {
-            return decodedDER
+        guard normalizedPEM.contains("-----BEGIN PRIVATE KEY-----") else {
+            throw AuthError.invalidPrivateKey("Unsupported PEM header. Expected BEGIN PRIVATE KEY.")
         }
 
-        if normalizedPEM.contains("-----BEGIN PRIVATE KEY-----") {
-            return try extractRSAPrivateKeyFromPKCS8(decodedDER)
+        guard let pemData = normalizedPEM.data(using: .utf8) else {
+            throw AuthError.invalidPrivateKey("Could not encode PEM as UTF-8.")
         }
+        var format = SecExternalFormat.formatUnknown
+        var itemType = SecExternalItemType.itemTypeUnknown
+        var importedItems: CFArray?
 
-        throw AuthError.invalidPrivateKey(
-            "Unsupported PEM header. Expected BEGIN PRIVATE KEY or BEGIN RSA PRIVATE KEY."
+        let status = SecItemImport(
+            pemData as CFData,
+            nil,
+            &format,
+            &itemType,
+            [],
+            nil,
+            nil,
+            &importedItems
         )
+
+        guard status == errSecSuccess else {
+            throw AuthError.invalidPrivateKey("Could not import private key: \(errorMessage(for: status))")
+        }
+
+        guard let importedItems else {
+            throw AuthError.invalidPrivateKey("No key material found in PEM.")
+        }
+
+        let itemCount = CFArrayGetCount(importedItems)
+        for index in 0..<itemCount {
+            let rawItem = CFArrayGetValueAtIndex(importedItems, index)
+            let item = unsafeBitCast(rawItem, to: AnyObject.self)
+            guard CFGetTypeID(item) == SecKeyGetTypeID() else {
+                continue
+            }
+
+            let key = unsafeBitCast(rawItem, to: SecKey.self)
+            try validateIsRSA(key: key)
+            return key
+        }
+
+        throw AuthError.invalidPrivateKey("Imported PEM did not contain a private key.")
     }
 
-    private static func decodePEMBody(from pem: String) throws -> Data {
-        let lines = pem
-            .components(separatedBy: "\n")
-            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-            .filter { !$0.hasPrefix("-----") && !$0.isEmpty }
-        let base64 = lines.joined()
-
-        guard !base64.isEmpty else {
-            throw AuthError.invalidPrivateKey("PEM body is empty.")
+    private static func validateIsRSA(key: SecKey) throws {
+        guard let attributes = SecKeyCopyAttributes(key) as? [CFString: Any],
+              let keyType = attributes[kSecAttrKeyType] else {
+            throw AuthError.invalidPrivateKey("Could not inspect imported key attributes.")
         }
 
-        guard let data = Data(base64Encoded: base64) else {
-            throw AuthError.invalidPrivateKey("Could not base64-decode PEM body.")
-        }
-        return data
-    }
-
-    private static func extractRSAPrivateKeyFromPKCS8(_ pkcs8Data: Data) throws -> Data {
-        var topLevelReader = DERReader(data: pkcs8Data)
-        let privateKeyInfo = try topLevelReader.readValue(tag: 0x30)
-
-        guard topLevelReader.isAtEnd else {
-            throw AuthError.invalidPrivateKey("Unexpected trailing data in PKCS#8 key.")
-        }
-
-        var privateKeyInfoReader = DERReader(data: privateKeyInfo)
-        _ = try privateKeyInfoReader.readValue(tag: 0x02) // version
-
-        let algorithmIdentifier = try privateKeyInfoReader.readValue(tag: 0x30)
-        try validateAlgorithmIdentifier(algorithmIdentifier)
-
-        let privateKeyOctets = try privateKeyInfoReader.readValue(tag: 0x04)
-        try validateRSAPrivateKeyDER(privateKeyOctets)
-        return privateKeyOctets
-    }
-
-    private static func validateAlgorithmIdentifier(_ data: Data) throws {
-        var reader = DERReader(data: data)
-        let oid = try reader.readValue(tag: 0x06)
-
-        guard oid == rsaEncryptionOID else {
-            throw AuthError.invalidPrivateKey("PKCS#8 key algorithm is not RSA.")
-        }
-
-        if let nullParameters = try reader.readOptionalValue(tag: 0x05), !nullParameters.isEmpty {
-            throw AuthError.invalidPrivateKey("Invalid PKCS#8 RSA algorithm parameters.")
-        }
-
-        guard reader.isAtEnd else {
-            throw AuthError.invalidPrivateKey("Unexpected data in PKCS#8 algorithm identifier.")
+        guard CFEqual(keyType as CFTypeRef, kSecAttrKeyTypeRSA) else {
+            throw AuthError.invalidPrivateKey("Private key algorithm is not RSA.")
         }
     }
 
-    private static func validateRSAPrivateKeyDER(_ data: Data) throws {
-        var reader = DERReader(data: data)
-        _ = try reader.readValue(tag: 0x30)
-
-        guard reader.isAtEnd else {
-            throw AuthError.invalidPrivateKey("Invalid RSA private key DER payload.")
+    private static func errorMessage(for status: OSStatus) -> String {
+        if let message = SecCopyErrorMessageString(status, nil) as String? {
+            return message
         }
+        return "OSStatus \(status)"
     }
 }
 
-private struct DERReader {
-    let data: Data
-    private(set) var offset: Int = 0
+private struct JWTHeader: Encodable {
+    let alg: String
+    let typ: String
+}
 
-    var isAtEnd: Bool {
-        offset == data.count
-    }
-
-    mutating func readValue(tag expectedTag: UInt8) throws -> Data {
-        let (tag, value) = try readElement()
-        guard tag == expectedTag else {
-            throw AuthError.invalidPrivateKey(
-                "Unexpected DER tag 0x\(hexString(tag)); expected 0x\(hexString(expectedTag))."
-            )
-        }
-        return value
-    }
-
-    mutating func readOptionalValue(tag expectedTag: UInt8) throws -> Data? {
-        guard offset < data.count else { return nil }
-        guard data[offset] == expectedTag else { return nil }
-        return try readValue(tag: expectedTag)
-    }
-
-    private mutating func readElement() throws -> (UInt8, Data) {
-        guard offset < data.count else {
-            throw AuthError.invalidPrivateKey("Unexpected end of DER data while reading tag.")
-        }
-
-        let tag = data[offset]
-        offset += 1
-
-        let length = try readLength()
-        guard offset + length <= data.count else {
-            throw AuthError.invalidPrivateKey("DER length exceeds available data.")
-        }
-
-        let value = data.subdata(in: offset..<(offset + length))
-        offset += length
-        return (tag, value)
-    }
-
-    private mutating func readLength() throws -> Int {
-        guard offset < data.count else {
-            throw AuthError.invalidPrivateKey("Unexpected end of DER data while reading length.")
-        }
-
-        let firstByte = data[offset]
-        offset += 1
-
-        if firstByte & 0x80 == 0 {
-            return Int(firstByte)
-        }
-
-        let lengthByteCount = Int(firstByte & 0x7F)
-        guard lengthByteCount > 0 else {
-            throw AuthError.invalidPrivateKey("Indefinite DER lengths are not supported.")
-        }
-
-        guard lengthByteCount <= 4 else {
-            throw AuthError.invalidPrivateKey("DER length uses too many bytes.")
-        }
-
-        guard offset + lengthByteCount <= data.count else {
-            throw AuthError.invalidPrivateKey("Incomplete DER length bytes.")
-        }
-
-        var length = 0
-        for _ in 0..<lengthByteCount {
-            length = (length << 8) | Int(data[offset])
-            offset += 1
-        }
-        return length
-    }
-
-    private func hexString(_ byte: UInt8) -> String {
-        let hexDigits = Array("0123456789ABCDEF")
-        let upper = Int(byte / 16)
-        let lower = Int(byte % 16)
-        return String(hexDigits[upper]) + String(hexDigits[lower])
-    }
+private struct JWTClaims: Encodable {
+    let iss: String
+    let scope: String
+    let aud: String
+    let iat: Int
+    let exp: Int
 }
 
 // MARK: - Token response model

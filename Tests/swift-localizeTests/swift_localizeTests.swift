@@ -1,6 +1,7 @@
 // Copyright 2026 DIAMIR. All rights reserved.
 
 import XCTest
+import Security
 @testable import swift_localize
 
 // MARK: - SheetParser tests
@@ -227,76 +228,75 @@ final class StringCatalogModelTests: XCTestCase {
     }
 }
 
-// MARK: - PEMKeyDecoder tests
+// MARK: - PrivateKeyImporter tests
 
-final class PEMKeyDecoderTests: XCTestCase {
+final class PrivateKeyImporterTests: XCTestCase {
 
-    func test_decodeRSAPrivateKeyData_acceptsPKCS1PEM() throws {
-        let pkcs1 = Data([0x30, 0x03, 0x02, 0x01, 0x00])
-        let pem = makePEM(header: "RSA PRIVATE KEY", body: pkcs1)
-
-        let decoded = try PEMKeyDecoder.decodeRSAPrivateKeyData(from: pem)
-        XCTAssertEqual(decoded, pkcs1)
+    func test_importRSAPrivateKey_acceptsPKCS8PEM() throws {
+        let key = try PrivateKeyImporter.importRSAPrivateKey(from: sampleRSAPKCS8PEM)
+        try assertKeyIsRSA(key)
     }
 
-    func test_decodeRSAPrivateKeyData_extractsInnerKeyFromPKCS8() throws {
-        let pkcs1 = Data([0x30, 0x03, 0x02, 0x01, 0x00])
-        let pkcs8 = Data([
-            0x30, 0x19,
-            0x02, 0x01, 0x00,
-            0x30, 0x0D,
-            0x06, 0x09, 0x2A, 0x86, 0x48, 0x86, 0xF7, 0x0D, 0x01, 0x01, 0x01,
-            0x05, 0x00,
-            0x04, 0x05, 0x30, 0x03, 0x02, 0x01, 0x00,
-        ])
-        let pem = makePEM(header: "PRIVATE KEY", body: pkcs8)
-
-        let decoded = try PEMKeyDecoder.decodeRSAPrivateKeyData(from: pem)
-        XCTAssertEqual(decoded, pkcs1)
+    func test_importRSAPrivateKey_supportsEscapedNewlines() throws {
+        let escapedPEM = sampleRSAPKCS8PEM.replacingOccurrences(of: "\n", with: "\\n")
+        let key = try PrivateKeyImporter.importRSAPrivateKey(from: escapedPEM)
+        try assertKeyIsRSA(key)
     }
 
-    func test_decodeRSAPrivateKeyData_supportsEscapedNewlines() throws {
-        let pkcs1 = Data([0x30, 0x03, 0x02, 0x01, 0x00])
-        let pem = makePEM(header: "RSA PRIVATE KEY", body: pkcs1)
-            .replacingOccurrences(of: "\n", with: "\\n")
-
-        let decoded = try PEMKeyDecoder.decodeRSAPrivateKeyData(from: pem)
-        XCTAssertEqual(decoded, pkcs1)
-    }
-
-    func test_decodeRSAPrivateKeyData_rejectsEncryptedPrivateKey() {
+    func test_importRSAPrivateKey_rejectsEncryptedPrivateKey() {
         let pem = """
         -----BEGIN ENCRYPTED PRIVATE KEY-----
         AAAA
         -----END ENCRYPTED PRIVATE KEY-----
         """
 
-        XCTAssertThrowsError(try PEMKeyDecoder.decodeRSAPrivateKeyData(from: pem)) { error in
+        XCTAssertThrowsError(try PrivateKeyImporter.importRSAPrivateKey(from: pem)) { error in
             let message = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
             XCTAssertTrue(message.contains("Encrypted private keys are not supported."))
         }
     }
 
-    func test_decodeRSAPrivateKeyData_rejectsUnsupportedHeader() {
+    func test_importRSAPrivateKey_rejectsUnsupportedHeader() {
         let pem = """
         -----BEGIN EC PRIVATE KEY-----
         AAAA
         -----END EC PRIVATE KEY-----
         """
 
-        XCTAssertThrowsError(try PEMKeyDecoder.decodeRSAPrivateKeyData(from: pem)) { error in
+        XCTAssertThrowsError(try PrivateKeyImporter.importRSAPrivateKey(from: pem)) { error in
             let message = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
             XCTAssertTrue(message.contains("Unsupported PEM header"))
         }
     }
 
-    private func makePEM(header: String, body: Data) -> String {
-        """
-        -----BEGIN \(header)-----
-        \(body.base64EncodedString())
-        -----END \(header)-----
-        """
+    private func assertKeyIsRSA(_ key: SecKey) throws {
+        guard let attributes = SecKeyCopyAttributes(key) as? [CFString: Any],
+              let keyType = attributes[kSecAttrKeyType] else {
+            XCTFail("Failed to read SecKey attributes")
+            return
+        }
+
+        XCTAssertTrue(CFEqual(keyType as CFTypeRef, kSecAttrKeyTypeRSA))
     }
+
+    private let sampleRSAPKCS8PEM = """
+    -----BEGIN PRIVATE KEY-----
+    MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBANsKZPRXZpiTxX1q
+    1j+u6kSctHlaFWmLCAio6IJvXbXVKDxwNcy/xafJ/hganQXqqCazP/a5Vsm71s+H
+    DDCYJa89QkSgQoiJ4QqXRMDpMfs16Ii/L3UHHRkqdlAVDCDxgq6Lzco9KKzpshuH
+    3yzyEu4qhG/hWBGzLnMVNUWnqAzdAgMBAAECgYBj0BDA5zLxRCUySYTn8CUArwfu
+    ZIZtWdWHXLDW/ziMq11ybQ+XBaxkET+gbEAxegS13ei/3SUXOGlil/+OBUbmA/7e
+    p2ehSS5y4WJB9gteusvnj2bhel+XY5N+G6LNLq41HcX0xKJbYWenwFat8AdDssgh
+    KwOy6fVU0Dg0SGbvYQJBAPH3bUcm7pMHRGoRaWJP3fLCeP3XStl6/yfHNGNxuuBt
+    qH+vwskwyrAGBN3q4HY8jQLorKUoRHw6PI1cf7TZSQMCQQDnvpPQYP7413nrdY8k
+    BG5EooJ1B+vmKo5KdcNOBU3YnR4VfHBJLvOLDDluyQqF8Tre87a6Hzk+kF/nZp8g
+    3TyfAkEAkVHIj7MSFbuHmyxZ3nGZGvMxN0LV8UetdnZtQExNr/wr9oPYuHxVPuJe
+    ielGZbx39AdJqOdGOlW/iCbFjBfzgQJABwP99ZD6Jw5e4oHsk2qO7AT/bguPWKhx
+    Jk/qWbJPaP9Yqc3amFyTguIb2v67EtL6tUUrgvbvBLXaMWcp6hTIgQJBAPAIo4qJ
+    stXWSHxPKWUqu4hl+vHwl7szans06i76LOQTL3sCNSXTokQC6AqAuIGBAS5KcE8J
+    4KYXZAxVHJVlIlk=
+    -----END PRIVATE KEY-----
+    """
 }
 
 // MARK: - XLIFFService tests
