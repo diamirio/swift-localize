@@ -22,14 +22,21 @@ public enum StringCatalogReader {
         Set(catalog.strings.keys)
     }
 
-    /// Returns a flat map of key → [languageCode: value] from a catalog.
-    public static func translations(in catalog: StringCatalog) -> [String: [String: String]] {
+    /// Returns a flat map of key → [languageCode: signature] from a catalog,
+    /// where `signature` is a stable string capturing either the flat value or
+    /// the joined plural variants. Used for diffing only.
+    public static func translationSignatures(in catalog: StringCatalog) -> [String: [String: String]] {
         var result: [String: [String: String]] = [:]
         for (key, entry) in catalog.strings {
             guard let localizations = entry.localizations else { continue }
             var langs: [String: String] = [:]
             for (lang, localization) in localizations {
-                langs[lang] = localization.stringUnit.value
+                if let unit = localization.stringUnit {
+                    langs[lang] = "single:" + unit.value
+                } else if let plural = localization.variations?.plural {
+                    let joined = plural.keys.sorted().map { "\($0)=\(plural[$0]!.stringUnit.value)" }.joined(separator: "|")
+                    langs[lang] = "plural:" + joined
+                }
             }
             if !langs.isEmpty {
                 result[key] = langs

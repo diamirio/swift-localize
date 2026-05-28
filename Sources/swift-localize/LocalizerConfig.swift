@@ -12,23 +12,38 @@ public struct LocalizerConfig: Codable, Sendable {
 
     /// Directory where `.xcstrings` files are written.
     /// Each sheet tab is written as `<localizationPath>/<tabName>.xcstrings`.
-    /// This should point directly to the folder inside your Xcode project
-    /// that already contains (or will contain) your string catalogs.
     public let localizationPath: String
 
     /// The BCP-47 language code to use as `sourceLanguage` in all catalogs.
     public let sourceLanguage: String
 
+    /// Optional allow-list of sheet tabs to import. When `nil` or empty, all tabs are processed.
+    public let tabs: [String]?
+
+    /// Optional override for the identifier column header name in the sheet.
+    /// Defaults to `"Identifier iOS"` when not specified.
+    public let identifierColumn: String?
+
+    /// The effective identifier column header, with default applied.
+    public var effectiveIdentifierColumn: String {
+        let trimmed = identifierColumn?.trimmingCharacters(in: .whitespaces) ?? ""
+        return trimmed.isEmpty ? "Identifier iOS" : trimmed
+    }
+
     public init(
         credentialsPath: String,
         spreadsheetId: String,
         localizationPath: String,
-        sourceLanguage: String = "de"
+        sourceLanguage: String = "de",
+        tabs: [String]? = nil,
+        identifierColumn: String? = nil
     ) {
         self.credentialsPath = credentialsPath
         self.spreadsheetId = spreadsheetId
         self.localizationPath = localizationPath
         self.sourceLanguage = sourceLanguage
+        self.tabs = tabs
+        self.identifierColumn = identifierColumn
     }
 
     /// Loads a `LocalizerConfig` from a JSON file at the given path.
@@ -51,7 +66,9 @@ public struct LocalizerConfig: Codable, Sendable {
             credentialsPath: Self.resolve(credentialsPath, relativeTo: base),
             spreadsheetId: spreadsheetId,
             localizationPath: Self.resolve(localizationPath, relativeTo: base),
-            sourceLanguage: sourceLanguage
+            sourceLanguage: sourceLanguage,
+            tabs: tabs,
+            identifierColumn: identifierColumn
         )
     }
 

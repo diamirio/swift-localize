@@ -2,8 +2,8 @@
 /.build
 /Packages
 xcuserdata/
+*.xcuserstate
 DerivedData/
-.swiftpm/configuration/registries.json
-.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.swiftpm/
 .netrc
 Tests/swift-localizeTests/credentials/

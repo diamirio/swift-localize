@@ -19,8 +19,15 @@ func printUsage() {
         "credentialsPath":  "./credentials/google_drive_credentials.json",
         "spreadsheetId":    "YOUR_SPREADSHEET_ID",
         "localizationPath": "./MyApp",
-        "sourceLanguage":   "de"
+        "sourceLanguage":   "de",
+        "tabs":             ["Common", "Onboarding"],
+        "identifierColumn": "Identifier iOS"
       }
+
+      Required: credentialsPath, spreadsheetId, localizationPath, sourceLanguage.
+      Optional:
+        - tabs:             Allow-list of sheet tab titles. Omit or use [] for all tabs.
+        - identifierColumn: Header of the identifier column. Defaults to "Identifier iOS".
 
       All paths are resolved relative to the config file's location.
 

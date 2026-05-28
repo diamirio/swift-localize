@@ -24,7 +24,7 @@ public struct StringEntry: Codable, Sendable {
     /// Per-language localization data. Absent if no translations exist yet.
     public var localizations: [String: Localization]?
 
-    /// Optional comment (not currently populated from sheet data, reserved for future use).
+    /// Optional comment, sourced from the "Kommentar" column.
     public var comment: String?
 
     public init(localizations: [String: Localization]? = nil, comment: String? = nil) {
@@ -36,7 +36,30 @@ public struct StringEntry: Codable, Sendable {
 // MARK: - Localization (language variant)
 
 /// Represents the localization for a single language.
+///
+/// Either `stringUnit` (flat string) or `variations` (e.g. plurals) is set,
+/// mirroring Apple's xcstrings on-disk schema.
 public struct Localization: Codable, Sendable {
+    public var stringUnit: StringUnit?
+    public var variations: Variations?
+
+    public init(stringUnit: StringUnit? = nil, variations: Variations? = nil) {
+        self.stringUnit = stringUnit
+        self.variations = variations
+    }
+}
+
+// MARK: - Variations (plural/device/etc.)
+
+public struct Variations: Codable, Sendable {
+    public var plural: [String: PluralVariation]?
+
+    public init(plural: [String: PluralVariation]? = nil) {
+        self.plural = plural
+    }
+}
+
+public struct PluralVariation: Codable, Sendable {
     public var stringUnit: StringUnit
 
     public init(stringUnit: StringUnit) {

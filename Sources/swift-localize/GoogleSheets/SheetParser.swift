@@ -2,17 +2,23 @@
 
 import Foundation
 
+/// A translation value for a single language: either a flat string or a set of plural variations.
+public enum TranslationValue: Sendable, Equatable {
+    case single(String)
+    case plural([PluralCategory: String])
+}
+
 /// A single parsed localization entry from a sheet row.
 public struct ParsedEntry: Sendable, Equatable {
-    /// The localization key (value from the "Identifier iOS" column).
+    /// The localization key (value from the identifier column).
     public let key: String
     /// Translations keyed by BCP-47 language code (e.g. "de", "en").
     /// Only languages with non-filtered values are included.
-    public let translations: [String: String]
+    public let translations: [String: TranslationValue]
     /// Optional comment from the "Kommentar" column.
     public let comment: String?
 
-    public init(key: String, translations: [String: String], comment: String? = nil) {
+    public init(key: String, translations: [String: TranslationValue], comment: String? = nil) {
         self.key = key
         self.translations = translations
         self.comment = comment
@@ -21,7 +27,7 @@ public struct ParsedEntry: Sendable, Equatable {
 
 /// The column layout discovered from the header row of a sheet tab.
 struct SheetColumnLayout {
-    /// Index of the "Identifier iOS" column.
+    /// Index of the identifier column.
     let identifierIndex: Int
     /// Map of language code → column index for all language columns.
     let languageColumns: [String: Int]
@@ -33,15 +39,20 @@ struct SheetColumnLayout {
 ///
 /// Column schema (per tab):
 /// - Row 0 is the header row.
-/// - `"Identifier iOS"` → the localization key.
+/// - Identifier column (default `"Identifier iOS"`, configurable) → the localization key.
 /// - `"Kommentar"` → optional string comment on each entry.
-/// - Columns before `"Kommentar"` with valid short language codes (for example `de`, `en`) are treated as language columns.
+/// - Columns before `"Kommentar"` with valid short language codes are treated as language columns.
 /// - All columns after `"Kommentar"` are ignored.
 ///
 /// Row filtering:
 /// - Skip rows where the identifier is `""`, `"NR"`, or `"TBD"` (exact, case-sensitive).
 /// - Skip rows where the identifier starts with `"//"` (section headers).
 /// - For individual language cells: omit that language if the value is `""`, `"NR"`, or `"TBD"`.
+///
+/// Value processing per cell:
+/// - Plural cells (`one|<value>`, `other|<value>`, ...) are mapped to `.plural`.
+/// - All other cells are mapped to `.single`.
+/// - `%s` / `%<N>s` placeholders are remapped to Apple's `%@` / `%<N>$@` form.
 public enum SheetParser {
 
     private static let validShortLanguageCodes = Set(Locale.LanguageCode.isoLanguageCodes.map { $0.identifier.lowercased() })
@@ -52,14 +63,18 @@ public enum SheetParser {
     ///
     /// - Parameters:
     ///   - rows: The 2D array of strings as returned by the Sheets API.
+    ///   - identifierColumn: Header name of the identifier column. Defaults to `"Identifier iOS"`.
     /// - Returns: Array of valid entries. Empty if the sheet has no header or no data rows.
-    public static func parse(rows: [[String]]) -> [ParsedEntry] {
+    public static func parse(
+        rows: [[String]],
+        identifierColumn: String = "Identifier iOS"
+    ) -> [ParsedEntry] {
         guard !rows.isEmpty else { return [] }
 
         let headerRow = rows[0].map { $0.trimmingCharacters(in: .whitespaces) }
         SyncLogger.info("Sheet header row: \(headerRow)")
-        guard let layout = discoverColumns(headerRow: headerRow) else {
-            SyncLogger.info("No Columns found!")
+        guard let layout = discoverColumns(headerRow: headerRow, identifierColumn: identifierColumn) else {
+            SyncLogger.info("No Columns found! (expected identifier column '\(identifierColumn)' and 'Kommentar')")
             return []
         }
 
@@ -79,8 +94,11 @@ public enum SheetParser {
 
     // MARK: - Column layout discovery
 
-    static func discoverColumns(headerRow: [String]) -> SheetColumnLayout? {
-        guard let identifierIndex = headerRow.firstIndex(of: "Identifier iOS") else {
+    static func discoverColumns(
+        headerRow: [String],
+        identifierColumn: String = "Identifier iOS"
+    ) -> SheetColumnLayout? {
+        guard let identifierIndex = headerRow.firstIndex(of: identifierColumn) else {
             return nil
         }
         guard let commentIndex = headerRow.firstIndex(of: "Kommentar") else {
@@ -119,11 +137,17 @@ public enum SheetParser {
         let identifier = cellValue(row, at: layout.identifierIndex)
         guard shouldIncludeIdentifier(identifier) else { return nil }
 
-        var translations: [String: String] = [:]
+        var translations: [String: TranslationValue] = [:]
         for (language, columnIndex) in layout.languageColumns {
-            let value = cellValue(row, at: columnIndex)
-            if shouldIncludeTranslationValue(value) {
-                translations[language] = value
+            let rawValue = cellValue(row, at: columnIndex)
+            guard shouldIncludeTranslationValue(rawValue) else { continue }
+
+            switch PluralParser.parse(rawValue) {
+            case .single(let value):
+                translations[language] = .single(PlaceholderMapper.mapped(value))
+            case .plural(let variants):
+                let mapped = variants.mapValues { PlaceholderMapper.mapped($0) }
+                translations[language] = .plural(mapped)
             }
         }
 
@@ -136,9 +160,11 @@ public enum SheetParser {
     // MARK: - Filter helpers
 
     /// Returns the cell value at the given index, or empty string if the row is too short.
+    /// Identifier cells are whitespace-trimmed; translation cells trim only leading/trailing
+    /// whitespace but preserve embedded newlines (needed for plural cells).
     static func cellValue(_ row: [String], at index: Int) -> String {
         guard index < row.count else { return "" }
-        return row[index].trimmingCharacters(in: .whitespaces)
+        return row[index].trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     /// Returns `true` if the identifier should produce a `ParsedEntry`.

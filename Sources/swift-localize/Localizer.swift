@@ -26,28 +26,60 @@ public actor Localizer {
         let authProvider = GoogleAuthProvider(credentials: credentials)
         let token = try await authProvider.accessToken()
 
-        let sheets = try await sheetsClient.getSheetMetadata(
+        let allSheets = try await sheetsClient.getSheetMetadata(
             spreadsheetId: config.spreadsheetId,
             token: token
         )
 
-        SyncLogger.info("Found \(sheets.count) tab(s): \(sheets.map(\.title).joined(separator: ", "))")
+        let filteredSheets = filterTabs(allSheets)
 
-        try await pullAll(sheets: sheets, authProvider: authProvider)
+        SyncLogger.info("Found \(allSheets.count) tab(s): \(allSheets.map(\.title).joined(separator: ", "))")
+        if filteredSheets.count != allSheets.count {
+            let skipped = Set(allSheets.map(\.title)).subtracting(filteredSheets.map(\.title)).sorted()
+            SyncLogger.info("Filtered to \(filteredSheets.count) tab(s); skipping: \(skipped.joined(separator: ", "))")
+        }
 
-        SyncLogger.info("Done.")
+        let summary = try await pullAll(sheets: filteredSheets, authProvider: authProvider)
+
+        SyncLogger.info(
+            "Done. Tabs synced: \(summary.tabs), added: \(summary.added), removed: \(summary.removed), updated: \(summary.updated)."
+        )
+    }
+
+    // MARK: - Tab filtering
+
+    private func filterTabs(_ sheets: [SheetMetadata]) -> [SheetMetadata] {
+        guard let requested = config.tabs, !requested.isEmpty else {
+            return sheets
+        }
+        let requestedSet = Set(requested)
+        let available = Set(sheets.map(\.title))
+        let missing = requestedSet.subtracting(available).sorted()
+        if !missing.isEmpty {
+            SyncLogger.warning("Requested tab(s) not found in spreadsheet: \(missing.joined(separator: ", "))")
+        }
+        return sheets.filter { requestedSet.contains($0.title) }
     }
 
     // MARK: - Pull (Sheets → Catalog)
 
-    private func pullAll(sheets: [SheetMetadata], authProvider: GoogleAuthProvider) async throws {
+    private func pullAll(sheets: [SheetMetadata], authProvider: GoogleAuthProvider) async throws -> Summary {
+        var totalAdded = 0
+        var totalRemoved = 0
+        var totalUpdated = 0
+
         for sheet in sheets {
             let token = try await authProvider.accessToken()
-            try await pullTab(tabName: sheet.title, token: token)
+            let diff = try await pullTab(tabName: sheet.title, token: token)
+            totalAdded += diff.added
+            totalRemoved += diff.removed
+            totalUpdated += diff.updated
         }
+
+        return Summary(tabs: sheets.count, added: totalAdded, removed: totalRemoved, updated: totalUpdated)
     }
 
-    private func pullTab(tabName: String, token: String) async throws {
+    private func pullTab(tabName: String, token: String) async throws -> PullDiff {
         SyncLogger.info("[\(tabName)] Fetching values...")
 
         let rows = try await sheetsClient.getSheetValues(
@@ -56,7 +88,10 @@ public actor Localizer {
             token: token
         )
 
-        let entries = SheetParser.parse(rows: rows)
+        let entries = SheetParser.parse(
+            rows: rows,
+            identifierColumn: config.effectiveIdentifierColumn
+        )
 
         let parsedLanguages = Set(entries.flatMap { $0.translations.keys }).sorted()
         SyncLogger.info(
@@ -69,7 +104,7 @@ public actor Localizer {
         let existingCatalog = try StringCatalogReader.read(from: outputPath)
         let hadExistingCatalog = (existingCatalog != nil)
 
-        SyncLogger.logPullResult(
+        let diff = SyncLogger.logPullResult(
             tabName: tabName,
             newEntries: entries,
             oldCatalog: existingCatalog
@@ -88,5 +123,14 @@ public actor Localizer {
                 SyncLogger.info("[\(tabName)] No parsed strings; no catalog file created.")
             }
         }
+
+        return diff
+    }
+
+    private struct Summary {
+        let tabs: Int
+        let added: Int
+        let removed: Int
+        let updated: Int
     }
 }

@@ -62,9 +62,7 @@ public enum StringCatalogWriter {
         for entry in entries {
             var localizations: [String: Localization] = [:]
             for (language, value) in entry.translations {
-                localizations[language] = Localization(
-                    stringUnit: StringUnit(state: .translated, value: value)
-                )
+                localizations[language] = localization(from: value)
             }
             strings[entry.key] = StringEntry(
                 localizations: localizations.isEmpty ? nil : localizations,
@@ -73,6 +71,23 @@ public enum StringCatalogWriter {
         }
 
         return StringCatalog(sourceLanguage: sourceLanguage, version: "1.0", strings: strings)
+    }
+
+    static func localization(from value: TranslationValue) -> Localization {
+        switch value {
+        case .single(let string):
+            return Localization(
+                stringUnit: StringUnit(state: .translated, value: string)
+            )
+        case .plural(let variants):
+            var plural: [String: PluralVariation] = [:]
+            for (category, text) in variants {
+                plural[category.rawValue] = PluralVariation(
+                    stringUnit: StringUnit(state: .translated, value: text)
+                )
+            }
+            return Localization(variations: Variations(plural: plural))
+        }
     }
 
     /// Encodes a `StringCatalog` to pretty-printed, sorted-key JSON.

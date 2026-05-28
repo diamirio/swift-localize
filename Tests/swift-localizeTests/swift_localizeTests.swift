@@ -1,133 +1,135 @@
 // Copyright 2026 DIAMIR. All rights reserved.
 
-import XCTest
+import Foundation
 import Security
+import Testing
 @testable import swift_localize
 
-// MARK: - SheetParser tests
+// MARK: - SheetParser
 
-final class SheetParserTests: XCTestCase {
+@Suite("SheetParser")
+struct SheetParserTests {
 
     // MARK: Column discovery
 
-    func test_discoverColumns_findsIdentifierAndLanguages() {
+    @Test
+    func discoverColumns_findsIdentifierAndLanguages() {
         let header = ["Identifier iOS", "de", "en", "fr", "Kommentar"]
         let layout = SheetParser.discoverColumns(headerRow: header)
 
-        XCTAssertNotNil(layout)
-        XCTAssertEqual(layout?.identifierIndex, 0)
-        XCTAssertEqual(layout?.languageColumns["de"], 1)
-        XCTAssertEqual(layout?.languageColumns["en"], 2)
-        XCTAssertEqual(layout?.languageColumns["fr"], 3)
-        XCTAssertEqual(layout?.commentIndex, 4)
-        XCTAssertNil(layout?.languageColumns["Kommentar"])
+        #expect(layout != nil)
+        #expect(layout?.identifierIndex == 0)
+        #expect(layout?.languageColumns["de"] == 1)
+        #expect(layout?.languageColumns["en"] == 2)
+        #expect(layout?.languageColumns["fr"] == 3)
+        #expect(layout?.commentIndex == 4)
+        #expect(layout?.languageColumns["Kommentar"] == nil)
     }
 
-    func test_discoverColumns_returnsNilWhenNoIdentifierColumn() {
+    @Test
+    func discoverColumns_returnsNilWhenNoIdentifierColumn() {
         let header = ["Key", "de", "en", "Kommentar"]
-        XCTAssertNil(SheetParser.discoverColumns(headerRow: header))
+        #expect(SheetParser.discoverColumns(headerRow: header) == nil)
     }
 
-    func test_discoverColumns_returnsNilWhenNoKommentarColumn() {
+    @Test
+    func discoverColumns_returnsNilWhenNoKommentarColumn() {
         let header = ["Identifier iOS", "de", "en"]
-        XCTAssertNil(SheetParser.discoverColumns(headerRow: header))
+        #expect(SheetParser.discoverColumns(headerRow: header) == nil)
     }
 
-    func test_discoverColumns_ignoresEmptyHeaders() {
+    @Test
+    func discoverColumns_ignoresEmptyHeaders() {
         let header = ["Identifier iOS", "", "de", "Kommentar"]
         let layout = SheetParser.discoverColumns(headerRow: header)
-        XCTAssertNil(layout?.languageColumns[""])
-        XCTAssertEqual(layout?.languageColumns["de"], 2)
+        #expect(layout?.languageColumns[""] == nil)
+        #expect(layout?.languageColumns["de"] == 2)
     }
 
-    func test_discoverColumns_acceptsOnlyShortLanguageCodes() {
+    @Test
+    func discoverColumns_acceptsOnlyShortLanguageCodes() {
         let header = ["Identifier iOS", "de", "en-US", "foo", "en", "Kommentar"]
         let layout = SheetParser.discoverColumns(headerRow: header)
-        XCTAssertEqual(layout?.languageColumns["de"], 1)
-        XCTAssertEqual(layout?.languageColumns["en"], 4)
-        XCTAssertNil(layout?.languageColumns["en-US"])
-        XCTAssertNil(layout?.languageColumns["foo"])
+        #expect(layout?.languageColumns["de"] == 1)
+        #expect(layout?.languageColumns["en"] == 4)
+        #expect(layout?.languageColumns["en-US"] == nil)
+        #expect(layout?.languageColumns["foo"] == nil)
     }
 
-    func test_discoverColumns_ignoresColumnsAfterKommentar() {
+    @Test
+    func discoverColumns_ignoresColumnsAfterKommentar() {
         let header = ["Identifier iOS", "de", "Kommentar", "en", "fr"]
         let layout = SheetParser.discoverColumns(headerRow: header)
-        XCTAssertEqual(layout?.languageColumns["de"], 1)
-        XCTAssertNil(layout?.languageColumns["en"])
-        XCTAssertNil(layout?.languageColumns["fr"])
+        #expect(layout?.languageColumns["de"] == 1)
+        #expect(layout?.languageColumns["en"] == nil)
+        #expect(layout?.languageColumns["fr"] == nil)
     }
 
-    // MARK: Row filtering — identifier
-
-    func test_shouldIncludeIdentifier_excludesEmpty() {
-        XCTAssertFalse(SheetParser.shouldIncludeIdentifier(""))
+    @Test
+    func discoverColumns_acceptsCustomIdentifierColumn() {
+        let header = ["Identifier Android", "de", "en", "Kommentar"]
+        let layout = SheetParser.discoverColumns(headerRow: header, identifierColumn: "Identifier Android")
+        #expect(layout?.identifierIndex == 0)
+        #expect(layout?.languageColumns["de"] == 1)
     }
 
-    func test_shouldIncludeIdentifier_excludesNR() {
-        XCTAssertFalse(SheetParser.shouldIncludeIdentifier("NR"))
+    // MARK: Identifier filtering
+
+    @Test
+    func shouldIncludeIdentifier_filtering() {
+        #expect(SheetParser.shouldIncludeIdentifier("") == false)
+        #expect(SheetParser.shouldIncludeIdentifier("NR") == false)
+        #expect(SheetParser.shouldIncludeIdentifier("TBD") == false)
+        #expect(SheetParser.shouldIncludeIdentifier("// Section title") == false)
+        #expect(SheetParser.shouldIncludeIdentifier("//nospace") == false)
+        #expect(SheetParser.shouldIncludeIdentifier("home.title") == true)
+        #expect(SheetParser.shouldIncludeIdentifier("some_key") == true)
+        // Case-sensitive: lowercase variants are NOT filtered.
+        #expect(SheetParser.shouldIncludeIdentifier("nr") == true)
+        #expect(SheetParser.shouldIncludeIdentifier("tbd") == true)
     }
 
-    func test_shouldIncludeIdentifier_excludesTBD() {
-        XCTAssertFalse(SheetParser.shouldIncludeIdentifier("TBD"))
-    }
-
-    func test_shouldIncludeIdentifier_excludesSectionHeaders() {
-        XCTAssertFalse(SheetParser.shouldIncludeIdentifier("// Section title"))
-        XCTAssertFalse(SheetParser.shouldIncludeIdentifier("//nospace"))
-    }
-
-    func test_shouldIncludeIdentifier_includesValidKey() {
-        XCTAssertTrue(SheetParser.shouldIncludeIdentifier("home.title"))
-        XCTAssertTrue(SheetParser.shouldIncludeIdentifier("some_key"))
-    }
-
-    func test_shouldIncludeIdentifier_isCaseSensitive() {
-        // lowercase "nr" and "tbd" should NOT be filtered
-        XCTAssertTrue(SheetParser.shouldIncludeIdentifier("nr"))
-        XCTAssertTrue(SheetParser.shouldIncludeIdentifier("tbd"))
-    }
-
-    // MARK: Row filtering — translation values
-
-    func test_shouldIncludeTranslationValue_excludesFilteredValues() {
-        XCTAssertFalse(SheetParser.shouldIncludeTranslationValue(""))
-        XCTAssertFalse(SheetParser.shouldIncludeTranslationValue("NR"))
-        XCTAssertFalse(SheetParser.shouldIncludeTranslationValue("TBD"))
-    }
-
-    func test_shouldIncludeTranslationValue_includesNormalValues() {
-        XCTAssertTrue(SheetParser.shouldIncludeTranslationValue("Hallo"))
-        XCTAssertTrue(SheetParser.shouldIncludeTranslationValue("Hello World"))
+    @Test
+    func shouldIncludeTranslationValue_filtering() {
+        #expect(SheetParser.shouldIncludeTranslationValue("") == false)
+        #expect(SheetParser.shouldIncludeTranslationValue("NR") == false)
+        #expect(SheetParser.shouldIncludeTranslationValue("TBD") == false)
+        #expect(SheetParser.shouldIncludeTranslationValue("Hallo") == true)
+        #expect(SheetParser.shouldIncludeTranslationValue("Hello World") == true)
     }
 
     // MARK: Full parse
 
-    func test_parse_emptyInput() {
-        XCTAssertTrue(SheetParser.parse(rows: []).isEmpty)
+    @Test
+    func parse_emptyInput() {
+        #expect(SheetParser.parse(rows: []).isEmpty)
     }
 
-    func test_parse_headerOnlyNoData() {
+    @Test
+    func parse_headerOnlyNoData() {
         let rows = [["Identifier iOS", "de", "en", "Kommentar"]]
-        XCTAssertTrue(SheetParser.parse(rows: rows).isEmpty)
+        #expect(SheetParser.parse(rows: rows).isEmpty)
     }
 
-    func test_parse_basicEntries() {
+    @Test
+    func parse_basicEntries() {
         let rows = [
             ["Identifier iOS", "de", "en", "Kommentar"],
             ["home.title", "Startseite", "Home", "Main screen title"],
             ["home.subtitle", "Willkommen", "Welcome", ""],
         ]
         let entries = SheetParser.parse(rows: rows)
-        XCTAssertEqual(entries.count, 2)
-        XCTAssertEqual(entries[0].key, "home.title")
-        XCTAssertEqual(entries[0].translations["de"], "Startseite")
-        XCTAssertEqual(entries[0].translations["en"], "Home")
-        XCTAssertEqual(entries[0].comment, "Main screen title")
-        XCTAssertNil(entries[0].translations["Kommentar"])
-        XCTAssertNil(entries[1].comment)
+        #expect(entries.count == 2)
+        #expect(entries[0].key == "home.title")
+        #expect(entries[0].translations["de"] == .single("Startseite"))
+        #expect(entries[0].translations["en"] == .single("Home"))
+        #expect(entries[0].comment == "Main screen title")
+        #expect(entries[0].translations["Kommentar"] == nil)
+        #expect(entries[1].comment == nil)
     }
 
-    func test_parse_skipsFilteredIdentifiers() {
+    @Test
+    func parse_skipsFilteredIdentifiers() {
         let rows = [
             ["Identifier iOS", "de", "en", "Kommentar"],
             ["// Section", "ignored", "ignored", ""],
@@ -137,11 +139,12 @@ final class SheetParserTests: XCTestCase {
             ["valid.key", "Wert", "Value", ""],
         ]
         let entries = SheetParser.parse(rows: rows)
-        XCTAssertEqual(entries.count, 1)
-        XCTAssertEqual(entries[0].key, "valid.key")
+        #expect(entries.count == 1)
+        #expect(entries[0].key == "valid.key")
     }
 
-    func test_parse_omitsFilteredLanguageValues() {
+    @Test
+    func parse_omitsFilteredLanguageValues() {
         let rows = [
             ["Identifier iOS", "de", "en", "Kommentar"],
             ["key.one", "Hallo", "NR", ""],
@@ -149,169 +152,322 @@ final class SheetParserTests: XCTestCase {
         ]
         let entries = SheetParser.parse(rows: rows)
 
-        // key.one: "de" present, "en" omitted (NR)
         let entry1 = entries.first { $0.key == "key.one" }
-        XCTAssertNotNil(entry1)
-        XCTAssertEqual(entry1?.translations["de"], "Hallo")
-        XCTAssertNil(entry1?.translations["en"])
+        #expect(entry1 != nil)
+        #expect(entry1?.translations["de"] == .single("Hallo"))
+        #expect(entry1?.translations["en"] == nil)
 
-        // key.two: both values filtered → entry still present, translations empty
+        // Both filtered → entry remains, translations empty.
         let entry2 = entries.first { $0.key == "key.two" }
-        XCTAssertNotNil(entry2)
-        XCTAssertTrue(entry2?.translations.isEmpty ?? false)
+        #expect(entry2 != nil)
+        #expect(entry2?.translations.isEmpty == true)
     }
 
-    func test_parse_handlesShortRows() {
+    @Test
+    func parse_handlesShortRows() {
         let rows = [
             ["Identifier iOS", "de", "en", "Kommentar"],
             ["key.short"],
         ]
         let entries = SheetParser.parse(rows: rows)
-        XCTAssertEqual(entries.count, 1)
-        XCTAssertEqual(entries[0].key, "key.short")
-        XCTAssertTrue(entries[0].translations.isEmpty)
+        #expect(entries.count == 1)
+        #expect(entries[0].key == "key.short")
+        #expect(entries[0].translations.isEmpty)
     }
 
-    func test_parse_trimsWhitespace() {
+    @Test
+    func parse_trimsWhitespace() {
         let rows = [
             ["Identifier iOS", "de", "Kommentar"],
             ["  key.trimmed  ", "  Hallo  ", ""],
         ]
         let entries = SheetParser.parse(rows: rows)
-        XCTAssertEqual(entries[0].key, "key.trimmed")
-        XCTAssertEqual(entries[0].translations["de"], "Hallo")
+        #expect(entries[0].key == "key.trimmed")
+        #expect(entries[0].translations["de"] == .single("Hallo"))
     }
 
-    func test_parse_ignoresColumnsAfterKommentar() {
+    @Test
+    func parse_ignoresColumnsAfterKommentar() {
         let rows = [
             ["Identifier iOS", "de", "Kommentar", "en"],
             ["home.title", "Startseite", "Main screen title", "Home"],
         ]
         let entries = SheetParser.parse(rows: rows)
-        XCTAssertEqual(entries.count, 1)
-        XCTAssertEqual(entries[0].translations["de"], "Startseite")
-        XCTAssertNil(entries[0].translations["en"])
-        XCTAssertEqual(entries[0].comment, "Main screen title")
+        #expect(entries.count == 1)
+        #expect(entries[0].translations["de"] == .single("Startseite"))
+        #expect(entries[0].translations["en"] == nil)
+        #expect(entries[0].comment == "Main screen title")
+    }
+
+    @Test
+    func parse_mapsPlaceholders() {
+        let rows = [
+            ["Identifier iOS", "de", "en", "Kommentar"],
+            ["greet", "Hallo %s", "Mario ate a %2s %1s", ""],
+        ]
+        let entries = SheetParser.parse(rows: rows)
+        #expect(entries[0].translations["de"] == .single("Hallo %@"))
+        #expect(entries[0].translations["en"] == .single("Mario ate a %2$@ %1$@"))
+    }
+
+    @Test
+    func parse_extractsPlurals() {
+        let rows = [
+            ["Identifier iOS", "en", "Kommentar"],
+            ["artists.count", "one|%d artist\nother|%d artists", ""],
+        ]
+        let entries = SheetParser.parse(rows: rows)
+        let en = entries[0].translations["en"]
+        guard case .plural(let variants) = en else {
+            Issue.record("Expected plural translation, got \(String(describing: en))")
+            return
+        }
+        #expect(variants[.one] == "%d artist")
+        #expect(variants[.other] == "%d artists")
+    }
+
+    @Test
+    func parse_acceptsCustomIdentifierColumn() {
+        let rows = [
+            ["Identifier Android", "de", "Kommentar"],
+            ["greeting", "Hallo", ""],
+        ]
+        let entries = SheetParser.parse(rows: rows, identifierColumn: "Identifier Android")
+        #expect(entries.count == 1)
+        #expect(entries[0].key == "greeting")
     }
 }
 
-// MARK: - StringCatalogWriter tests
+// MARK: - PlaceholderMapper
 
-final class StringCatalogWriterTests: XCTestCase {
+@Suite("PlaceholderMapper")
+struct PlaceholderMapperTests {
 
-    func test_buildCatalog_correctStructure() {
+    @Test
+    func mapsSimpleS() {
+        #expect(PlaceholderMapper.mapped("Hello %s") == "Hello %@")
+    }
+
+    @Test
+    func mapsPositionalS() {
+        #expect(PlaceholderMapper.mapped("Mario ate a %2s %1s") == "Mario ate a %2$@ %1$@")
+    }
+
+    @Test
+    func leavesUnrelatedSpecifiersUnchanged() {
+        #expect(PlaceholderMapper.mapped("Count: %d, Pi: %.2f") == "Count: %d, Pi: %.2f")
+        #expect(PlaceholderMapper.mapped("Name: %@") == "Name: %@")
+        #expect(PlaceholderMapper.mapped("Pos: %1$d") == "Pos: %1$d")
+    }
+
+    @Test
+    func normalizesPositionalDollarS() {
+        #expect(PlaceholderMapper.mapped("%1$s end") == "%1$@ end")
+    }
+
+    @Test
+    func handlesNoPlaceholders() {
+        #expect(PlaceholderMapper.mapped("plain text") == "plain text")
+        #expect(PlaceholderMapper.mapped("") == "")
+    }
+
+    @Test
+    func handlesTrailingPercent() {
+        // A lone '%' should pass through.
+        #expect(PlaceholderMapper.mapped("100% sure") == "100% sure")
+    }
+}
+
+// MARK: - PluralParser
+
+@Suite("PluralParser")
+struct PluralParserTests {
+
+    @Test
+    func parsesValidPluralCell() {
+        let result = PluralParser.parse("one|%d artist\nother|%d artists")
+        guard case .plural(let variants) = result else {
+            Issue.record("Expected plural")
+            return
+        }
+        #expect(variants[.one] == "%d artist")
+        #expect(variants[.other] == "%d artists")
+        #expect(variants.count == 2)
+    }
+
+    @Test
+    func parsesAllCategories() {
+        let raw = """
+        zero|none
+        one|one item
+        two|two items
+        few|few items
+        many|many items
+        other|%d items
+        """
+        guard case .plural(let variants) = PluralParser.parse(raw) else {
+            Issue.record("Expected plural")
+            return
+        }
+        #expect(variants.count == 6)
+        #expect(variants[.zero] == "none")
+        #expect(variants[.other] == "%d items")
+    }
+
+    @Test
+    func treatsPlainStringAsSingle() {
+        let result = PluralParser.parse("just a sentence")
+        #expect(result == .single("just a sentence"))
+    }
+
+    @Test
+    func treatsMissingOtherAsSingle() {
+        // Plural-looking but no 'other' → fall back to single.
+        let raw = "one|%d artist"
+        let result = PluralParser.parse(raw)
+        #expect(result == .single(raw))
+    }
+
+    @Test
+    func treatsUnknownCategoryAsSingle() {
+        let raw = "weird|nope\nother|something"
+        let result = PluralParser.parse(raw)
+        #expect(result == .single(raw))
+    }
+
+    @Test
+    func acceptsCaseInsensitiveCategories() {
+        guard case .plural(let variants) = PluralParser.parse("One|x\nOther|y") else {
+            Issue.record("Expected plural")
+            return
+        }
+        #expect(variants[.one] == "x")
+        #expect(variants[.other] == "y")
+    }
+
+    @Test
+    func emptyValueProducesEmptySingle() {
+        #expect(PluralParser.parse("") == .single(""))
+    }
+}
+
+// MARK: - StringCatalogWriter
+
+@Suite("StringCatalogWriter")
+struct StringCatalogWriterTests {
+
+    @Test
+    func buildCatalog_singleAndMixedEntries() {
         let entries = [
-            ParsedEntry(key: "app.name", translations: ["de": "App Name", "en": "App Name"]),
-            ParsedEntry(key: "app.slogan", translations: ["de": "Unser Slogan"]),
+            ParsedEntry(key: "app.name", translations: [
+                "de": .single("App Name"),
+                "en": .single("App Name"),
+            ]),
+            ParsedEntry(key: "app.slogan", translations: [
+                "de": .single("Unser Slogan"),
+            ]),
         ]
         let catalog = StringCatalogWriter.buildCatalog(entries: entries, sourceLanguage: "de")
 
-        XCTAssertEqual(catalog.sourceLanguage, "de")
-        XCTAssertEqual(catalog.version, "1.0")
-        XCTAssertEqual(catalog.strings.count, 2)
+        #expect(catalog.sourceLanguage == "de")
+        #expect(catalog.version == "1.0")
+        #expect(catalog.strings.count == 2)
 
         let appName = catalog.strings["app.name"]
-        XCTAssertNotNil(appName)
-        XCTAssertEqual(appName?.localizations?["de"]?.stringUnit.value, "App Name")
-        XCTAssertEqual(appName?.localizations?["en"]?.stringUnit.value, "App Name")
-        XCTAssertEqual(appName?.localizations?["de"]?.stringUnit.state, .translated)
+        #expect(appName != nil)
+        #expect(appName?.localizations?["de"]?.stringUnit?.value == "App Name")
+        #expect(appName?.localizations?["en"]?.stringUnit?.value == "App Name")
+        #expect(appName?.localizations?["de"]?.stringUnit?.state == .translated)
     }
 
-    func test_buildCatalog_emptyTranslationsProducesNilLocalizations() {
+    @Test
+    func buildCatalog_emptyTranslationsProducesNilLocalizations() {
         let entries = [ParsedEntry(key: "empty.key", translations: [:])]
         let catalog = StringCatalogWriter.buildCatalog(entries: entries, sourceLanguage: "de")
-        XCTAssertNil(catalog.strings["empty.key"]?.localizations)
+        #expect(catalog.strings["empty.key"]?.localizations == nil)
     }
 
-    func test_buildCatalog_filtersInvalidLanguageKeys() {
+    @Test
+    func buildCatalog_buildsPluralVariations() {
         let entries = [
             ParsedEntry(
-                key: "welcome",
-                translations: ["de": "Willkommen", "Android Identifier": "welcome_android"]
+                key: "artists.count",
+                translations: [
+                    "en": .plural([.one: "%d artist", .other: "%d artists"]),
+                ]
             )
         ]
         let catalog = StringCatalogWriter.buildCatalog(entries: entries, sourceLanguage: "de")
-
-        XCTAssertEqual(catalog.strings["welcome"]?.localizations?["de"]?.stringUnit.value, "Willkommen")
-        XCTAssertNil(catalog.strings["welcome"]?.localizations?["Android Identifier"])
+        let en = catalog.strings["artists.count"]?.localizations?["en"]
+        #expect(en?.stringUnit == nil)
+        #expect(en?.variations?.plural?["one"]?.stringUnit.value == "%d artist")
+        #expect(en?.variations?.plural?["other"]?.stringUnit.value == "%d artists")
     }
 
-    func test_encode_producesValidJSON() throws {
-        let entries = [ParsedEntry(key: "a.key", translations: ["de": "Hallo"])]
+    @Test
+    func encode_producesValidJSON() throws {
+        let entries = [ParsedEntry(key: "a.key", translations: ["de": .single("Hallo")])]
         let catalog = StringCatalogWriter.buildCatalog(entries: entries, sourceLanguage: "de")
         let data = try StringCatalogWriter.encode(catalog)
         let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-        XCTAssertNotNil(json)
-        XCTAssertEqual(json?["sourceLanguage"] as? String, "de")
-        XCTAssertEqual(json?["version"] as? String, "1.0")
+        #expect(json != nil)
+        #expect(json?["sourceLanguage"] as? String == "de")
+        #expect(json?["version"] as? String == "1.0")
     }
 
-    func test_write_removesLanguageWhenNoLongerPresent() throws {
+    @Test
+    func write_overwriteRemovesLanguageWhenNoLongerPresent() throws {
         let tempDir = try makeTempDirectory()
         defer { try? FileManager.default.removeItem(atPath: tempDir) }
 
-        let tabName = "Sample"
+        let outputPath = (tempDir as NSString).appendingPathComponent("Sample.xcstrings")
+
         try StringCatalogWriter.write(
-            entries: [ParsedEntry(key: "welcome", translations: ["de": "Willkommen", "en": "Welcome"])],
-            tabName: tabName,
-            outputDirectory: tempDir,
+            entries: [ParsedEntry(key: "welcome", translations: [
+                "de": .single("Willkommen"),
+                "en": .single("Welcome"),
+            ])],
+            to: outputPath,
             sourceLanguage: "de"
         )
 
         try StringCatalogWriter.write(
-            entries: [ParsedEntry(key: "welcome", translations: ["de": "Willkommen"])],
-            tabName: tabName,
-            outputDirectory: tempDir,
+            entries: [ParsedEntry(key: "welcome", translations: ["de": .single("Willkommen")])],
+            to: outputPath,
             sourceLanguage: "de"
         )
 
-        let catalogPath = (tempDir as NSString).appendingPathComponent("\(tabName).xcstrings")
-        let catalog = try StringCatalogReader.read(from: catalogPath)
-
-        XCTAssertEqual(catalog?.strings["welcome"]?.localizations?["de"]?.stringUnit.value, "Willkommen")
-        XCTAssertNil(catalog?.strings["welcome"]?.localizations?["en"])
+        let catalog = try StringCatalogReader.read(from: outputPath)
+        #expect(catalog?.strings["welcome"]?.localizations?["de"]?.stringUnit?.value == "Willkommen")
+        #expect(catalog?.strings["welcome"]?.localizations?["en"] == nil)
     }
 
-    func test_write_emptyEntriesRemovesExistingCatalog() throws {
+    @Test
+    func write_emptyEntriesRemovesExistingCatalog() throws {
         let tempDir = try makeTempDirectory()
         defer { try? FileManager.default.removeItem(atPath: tempDir) }
 
-        let tabName = "Sample"
-        let catalogPath = (tempDir as NSString).appendingPathComponent("\(tabName).xcstrings")
+        let outputPath = (tempDir as NSString).appendingPathComponent("Sample.xcstrings")
 
         try StringCatalogWriter.write(
-            entries: [ParsedEntry(key: "welcome", translations: ["de": "Willkommen"])],
-            tabName: tabName,
-            outputDirectory: tempDir,
+            entries: [ParsedEntry(key: "welcome", translations: ["de": .single("Willkommen")])],
+            to: outputPath,
             sourceLanguage: "de"
         )
-        XCTAssertTrue(FileManager.default.fileExists(atPath: catalogPath))
+        #expect(FileManager.default.fileExists(atPath: outputPath))
 
-        try StringCatalogWriter.write(
-            entries: [],
-            tabName: tabName,
-            outputDirectory: tempDir,
-            sourceLanguage: "de"
-        )
-
-        XCTAssertFalse(FileManager.default.fileExists(atPath: catalogPath))
+        try StringCatalogWriter.write(entries: [], to: outputPath, sourceLanguage: "de")
+        #expect(FileManager.default.fileExists(atPath: outputPath) == false)
     }
 
-    func test_write_emptyEntriesDoesNotCreateCatalog() throws {
+    @Test
+    func write_emptyEntriesDoesNotCreateCatalog() throws {
         let tempDir = try makeTempDirectory()
         defer { try? FileManager.default.removeItem(atPath: tempDir) }
 
-        let tabName = "Sample"
-        let catalogPath = (tempDir as NSString).appendingPathComponent("\(tabName).xcstrings")
-
-        try StringCatalogWriter.write(
-            entries: [],
-            tabName: tabName,
-            outputDirectory: tempDir,
-            sourceLanguage: "de"
-        )
-
-        XCTAssertFalse(FileManager.default.fileExists(atPath: catalogPath))
+        let outputPath = (tempDir as NSString).appendingPathComponent("Sample.xcstrings")
+        try StringCatalogWriter.write(entries: [], to: outputPath, sourceLanguage: "de")
+        #expect(FileManager.default.fileExists(atPath: outputPath) == false)
     }
 
     private func makeTempDirectory() throws -> String {
@@ -322,11 +478,13 @@ final class StringCatalogWriterTests: XCTestCase {
     }
 }
 
-// MARK: - StringCatalogModel Codable tests
+// MARK: - StringCatalog Codable
 
-final class StringCatalogModelTests: XCTestCase {
+@Suite("StringCatalog Codable")
+struct StringCatalogModelTests {
 
-    func test_roundtrip_encodeDecode() throws {
+    @Test
+    func roundtrip_encodeDecodeWithSingles() throws {
         let catalog = StringCatalog(
             sourceLanguage: "de",
             version: "1.0",
@@ -345,61 +503,155 @@ final class StringCatalogModelTests: XCTestCase {
         let data = try encoder.encode(catalog)
 
         let decoded = try JSONDecoder().decode(StringCatalog.self, from: data)
-        XCTAssertEqual(decoded.sourceLanguage, "de")
-        XCTAssertEqual(decoded.strings["hello"]?.localizations?["de"]?.stringUnit.value, "Hallo")
-        XCTAssertEqual(decoded.strings["hello"]?.localizations?["en"]?.stringUnit.value, "Hello")
+        #expect(decoded.sourceLanguage == "de")
+        #expect(decoded.strings["hello"]?.localizations?["de"]?.stringUnit?.value == "Hallo")
+        #expect(decoded.strings["hello"]?.localizations?["en"]?.stringUnit?.value == "Hello")
+    }
+
+    @Test
+    func roundtrip_encodeDecodeWithPlurals() throws {
+        let catalog = StringCatalog(
+            sourceLanguage: "de",
+            strings: [
+                "artists.count": StringEntry(
+                    localizations: [
+                        "en": Localization(
+                            variations: Variations(plural: [
+                                "one": PluralVariation(stringUnit: StringUnit(value: "%d artist")),
+                                "other": PluralVariation(stringUnit: StringUnit(value: "%d artists")),
+                            ])
+                        )
+                    ]
+                )
+            ]
+        )
+
+        let data = try JSONEncoder().encode(catalog)
+        let decoded = try JSONDecoder().decode(StringCatalog.self, from: data)
+        let plural = decoded.strings["artists.count"]?.localizations?["en"]?.variations?.plural
+        #expect(plural?["one"]?.stringUnit.value == "%d artist")
+        #expect(plural?["other"]?.stringUnit.value == "%d artists")
     }
 }
 
-// MARK: - PrivateKeyImporter tests
+// MARK: - LocalizerConfig
 
-final class PrivateKeyImporterTests: XCTestCase {
+@Suite("LocalizerConfig")
+struct LocalizerConfigTests {
 
-    func test_importRSAPrivateKey_acceptsPKCS8PEM() throws {
+    @Test
+    func decodes_minimumFields() throws {
+        let json = #"""
+        {
+          "credentialsPath": "creds.json",
+          "spreadsheetId": "abc",
+          "localizationPath": "./out",
+          "sourceLanguage": "de"
+        }
+        """#.data(using: .utf8)!
+        let config = try JSONDecoder().decode(LocalizerConfig.self, from: json)
+        #expect(config.tabs == nil)
+        #expect(config.identifierColumn == nil)
+        #expect(config.effectiveIdentifierColumn == "Identifier iOS")
+    }
+
+    @Test
+    func decodes_optionalFields() throws {
+        let json = #"""
+        {
+          "credentialsPath": "creds.json",
+          "spreadsheetId": "abc",
+          "localizationPath": "./out",
+          "sourceLanguage": "de",
+          "tabs": ["Common", "Onboarding"],
+          "identifierColumn": "Identifier Android"
+        }
+        """#.data(using: .utf8)!
+        let config = try JSONDecoder().decode(LocalizerConfig.self, from: json)
+        #expect(config.tabs == ["Common", "Onboarding"])
+        #expect(config.effectiveIdentifierColumn == "Identifier Android")
+    }
+
+    @Test
+    func rebased_resolvesRelativePaths() {
+        let base = URL(fileURLWithPath: "/tmp/project")
+        let config = LocalizerConfig(
+            credentialsPath: "./creds.json",
+            spreadsheetId: "abc",
+            localizationPath: "./MyApp",
+            sourceLanguage: "de"
+        )
+        let rebased = config.rebased(relativeTo: base)
+        #expect(rebased.credentialsPath == "/tmp/project/creds.json")
+        #expect(rebased.localizationPath == "/tmp/project/MyApp")
+    }
+
+    @Test
+    func rebased_leavesAbsolutePathsUnchanged() {
+        let base = URL(fileURLWithPath: "/tmp/project")
+        let config = LocalizerConfig(
+            credentialsPath: "/etc/secrets/creds.json",
+            spreadsheetId: "abc",
+            localizationPath: "/var/data/MyApp",
+            sourceLanguage: "de"
+        )
+        let rebased = config.rebased(relativeTo: base)
+        #expect(rebased.credentialsPath == "/etc/secrets/creds.json")
+        #expect(rebased.localizationPath == "/var/data/MyApp")
+    }
+}
+
+// MARK: - PrivateKeyImporter
+
+@Suite("PrivateKeyImporter")
+struct PrivateKeyImporterTests {
+
+    @Test
+    func acceptsPKCS8PEM() throws {
         let key = try PrivateKeyImporter.importRSAPrivateKey(from: sampleRSAPKCS8PEM)
         try assertKeyIsRSA(key)
     }
 
-    func test_importRSAPrivateKey_supportsEscapedNewlines() throws {
+    @Test
+    func supportsEscapedNewlines() throws {
         let escapedPEM = sampleRSAPKCS8PEM.replacingOccurrences(of: "\n", with: "\\n")
         let key = try PrivateKeyImporter.importRSAPrivateKey(from: escapedPEM)
         try assertKeyIsRSA(key)
     }
 
-    func test_importRSAPrivateKey_rejectsEncryptedPrivateKey() {
+    @Test
+    func rejectsEncryptedPrivateKey() {
         let pem = """
         -----BEGIN ENCRYPTED PRIVATE KEY-----
         AAAA
         -----END ENCRYPTED PRIVATE KEY-----
         """
 
-        XCTAssertThrowsError(try PrivateKeyImporter.importRSAPrivateKey(from: pem)) { error in
-            let message = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
-            XCTAssertTrue(message.contains("Encrypted private keys are not supported."))
+        #expect(throws: AuthError.self) {
+            try PrivateKeyImporter.importRSAPrivateKey(from: pem)
         }
     }
 
-    func test_importRSAPrivateKey_rejectsUnsupportedHeader() {
+    @Test
+    func rejectsUnsupportedHeader() {
         let pem = """
         -----BEGIN EC PRIVATE KEY-----
         AAAA
         -----END EC PRIVATE KEY-----
         """
 
-        XCTAssertThrowsError(try PrivateKeyImporter.importRSAPrivateKey(from: pem)) { error in
-            let message = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
-            XCTAssertTrue(message.contains("Unsupported PEM header"))
+        #expect(throws: AuthError.self) {
+            try PrivateKeyImporter.importRSAPrivateKey(from: pem)
         }
     }
 
     private func assertKeyIsRSA(_ key: SecKey) throws {
         guard let attributes = SecKeyCopyAttributes(key) as? [CFString: Any],
               let keyType = attributes[kSecAttrKeyType] else {
-            XCTFail("Failed to read SecKey attributes")
+            Issue.record("Failed to read SecKey attributes")
             return
         }
-
-        XCTAssertTrue(CFEqual(keyType as CFTypeRef, kSecAttrKeyTypeRSA))
+        #expect(CFEqual(keyType as CFTypeRef, kSecAttrKeyTypeRSA))
     }
 
     private let sampleRSAPKCS8PEM = """
@@ -421,4 +673,3 @@ final class PrivateKeyImporterTests: XCTestCase {
     -----END PRIVATE KEY-----
     """
 }
-

@@ -15,7 +15,7 @@ public enum SyncLogger {
         tabName: String,
         newEntries: [ParsedEntry],
         oldCatalog: StringCatalog?
-    ) {
+    ) -> PullDiff {
         let newKeys = Set(newEntries.map(\.key))
         let oldKeys: Set<String>
 
@@ -29,15 +29,14 @@ public enum SyncLogger {
         let added = newKeys.subtracting(oldKeys).sorted()
         let removed = oldKeys.subtracting(newKeys).sorted()
 
-        // Find updated keys: key exists in both, but at least one language value changed.
-        let oldTranslations = oldCatalog.map { StringCatalogReader.translations(in: $0) } ?? [:]
-        let newTranslationsMap = Dictionary(uniqueKeysWithValues: newEntries.map { ($0.key, $0.translations) })
+        let oldSignatures = oldCatalog.map { StringCatalogReader.translationSignatures(in: $0) } ?? [:]
+        let newSignatures: [String: [String: String]] = Dictionary(uniqueKeysWithValues: newEntries.map { entry in
+            (entry.key, entry.translations.mapValues { signature(for: $0) })
+        })
 
         let commonKeys = newKeys.intersection(oldKeys)
         let updated = commonKeys.filter { key in
-            guard let oldLangs = oldTranslations[key],
-                  let newLangs = newTranslationsMap[key] else { return false }
-            return oldLangs != newLangs
+            oldSignatures[key] != newSignatures[key]
         }.sorted()
 
         print("[\(tabName)] \(newKeys.count) string(s) written")
@@ -47,6 +46,18 @@ public enum SyncLogger {
         updated.forEach { print("[\(tabName)] ~ updated: \($0)") }
         if added.isEmpty && removed.isEmpty && updated.isEmpty && oldCatalog != nil {
             print("[\(tabName)] No changes")
+        }
+
+        return PullDiff(added: added.count, removed: removed.count, updated: updated.count)
+    }
+
+    private static func signature(for value: TranslationValue) -> String {
+        switch value {
+        case .single(let string):
+            return "single:" + string
+        case .plural(let variants):
+            let joined = variants.keys.sorted().map { "\($0.rawValue)=\(variants[$0]!)" }.joined(separator: "|")
+            return "plural:" + joined
         }
     }
 
@@ -65,5 +76,18 @@ public enum SyncLogger {
     /// Logs an error.
     public static func error(_ message: String) {
         fputs("[swift-localize] ERROR: \(message)\n", stderr)
+    }
+}
+
+/// Per-tab change counts, returned by `SyncLogger.logPullResult` for higher-level summarization.
+public struct PullDiff: Sendable {
+    public let added: Int
+    public let removed: Int
+    public let updated: Int
+
+    public init(added: Int, removed: Int, updated: Int) {
+        self.added = added
+        self.removed = removed
+        self.updated = updated
     }
 }

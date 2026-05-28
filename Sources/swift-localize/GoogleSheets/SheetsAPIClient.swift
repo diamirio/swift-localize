@@ -95,7 +95,9 @@ public struct SheetsAPIClient: Sendable {
         var request = URLRequest(url: url)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         let (data, response) = try await session.data(for: request)
-        let httpResponse = response as! HTTPURLResponse
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw SheetsAPIError.unexpectedResponse("Response was not an HTTPURLResponse.")
+        }
         guard httpResponse.statusCode == 200 else {
             let body = String(data: data, encoding: .utf8) ?? ""
             throw SheetsAPIError.httpError(httpResponse.statusCode, body)
