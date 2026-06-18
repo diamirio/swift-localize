@@ -1,0 +1,8 @@
+{
+  "credentialsPath":  "./credentials/google_drive_credentials.json",
+  "spreadsheetId":    "YOUR_SPREADSHEET_ID",
+  "localizationPath": "./MyApp",
+  "sourceLanguage":   "de",
+  "tabs":             ["Common", "Onboarding"],
+  "identifierColumn": "Identifier iOS"
+}

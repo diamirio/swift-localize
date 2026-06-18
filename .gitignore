@@ -1,0 +1,9 @@
+.DS_Store
+/.build
+/Packages
+xcuserdata/
+*.xcuserstate
+DerivedData/
+.swiftpm/
+.netrc
+Tests/swift-localizeTests/credentials/
